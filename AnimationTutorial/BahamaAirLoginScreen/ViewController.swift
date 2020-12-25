@@ -73,6 +73,9 @@ class ViewController: UIViewController {
         label.textColor = UIColor(red: 0.89, green: 0.38, blue: 0.0, alpha: 1.0)
         label.textAlignment = .center
         status.addSubview(label)
+        
+        statusPosition = status.center
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -98,7 +101,6 @@ class ViewController: UIViewController {
                        usingSpringWithDamping: 0.4, initialSpringVelocity: 0.0, options: [], animations: {
                         self.loginButton.center.y -= 30.0
                         self.loginButton.alpha = 1.0
-                        
                        }, completion: nil)
         
         
@@ -137,24 +139,96 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 0.5, delay: 1.1, options: [], animations: {
             self.cloud4.alpha = 1
         }, completion: nil)
+        
+        
+        animateCloud(cloud1)
+        animateCloud(cloud2)
+        animateCloud(cloud3)
+        animateCloud(cloud4)
     }
     
     // MARK: further methods
     
+    func showMessage(index: Int) {
+      label.text = messages[index]
+
+      UIView.transition(with: status, duration: 0.33,
+        options: [.curveEaseOut, .transitionFlipFromBottom],
+        animations: {
+          self.status.isHidden = false
+        },
+        completion: {_ in
+            delay(1.0) {
+              if index < self.messages.count-1 {
+                self.removeMessage(index: index)
+              } else {
+                self.resetForm()
+              }
+            }
+        }
+      )
+    }
+    
+    func removeMessage(index: Int) {
+      UIView.animate(withDuration: 0.33, delay: 0.0, options: [],
+        animations: {
+          self.status.center.x += self.view.frame.size.width
+        },
+        completion: { _ in
+          self.status.isHidden = true
+          self.status.center = self.statusPosition
+
+          self.showMessage(index: index+1)
+        }
+      )
+    }
+    
+    func resetForm() {
+        UIView.transition(with: status, duration: 0.2, options: [.curveEaseIn, .transitionFlipFromTop], animations: {
+            
+            self.status.isHidden = true
+            self.status.center = self.statusPosition
+            self.spinner.frame.origin.x = -20.0
+            self.spinner.frame.origin.y = 16.0
+            self.spinner.alpha = 0
+            self.loginButton.backgroundColor = UIColor(red: 0.63, green: 0.84, blue: 0.35, alpha: 1.0)
+            self.loginButton.bounds.size.width -= 80.0
+            self.loginButton.center.y -= 60.0
+            
+        }, completion: nil)
+    }
+    
+    func animateCloud(_ cloud: UIImageView) {
+      let cloudSpeed = 60.0 / view.frame.size.width
+      let duration = (view.frame.size.width - cloud.frame.origin.x) * cloudSpeed
+        UIView.animate(withDuration: TimeInterval(duration), delay: 0.0, options: .curveLinear, animations: {
+        cloud.frame.origin.x = self.view.frame.size.width
+      }, completion: { _ in
+        cloud.frame.origin.x = -cloud.frame.size.width
+        self.animateCloud(cloud)
+      })
+    }
+
     @IBAction func login() {
         view.endEditing(true)
         
         UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.0, options: [], animations: {
             self.loginButton.bounds.size.width += 80.0
-            self.loginButton.backgroundColor =
-                UIColor(red: 0.85, green: 0.83, blue: 0.45, alpha: 1.0)
-            self.spinner.center = CGPoint(
-              x: 40.0,
-              y: self.loginButton.frame.size.height/2
-            )
-            self.spinner.alpha = 1.0
-
+           
+        }) {_ in
+            self.showMessage(index: 0)
+        }
+        
+        UIView.animate(withDuration: 0.33, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.0, options: [], animations: {
+          self.loginButton.center.y += 60.0
+          self.loginButton.backgroundColor = UIColor(red: 0.85, green: 0.83, blue: 0.45, alpha: 1.0)
+          self.spinner.center = CGPoint(
+            x: 40.0,
+            y: self.loginButton.frame.size.height/2
+          )
+          self.spinner.alpha = 1.0
         }, completion: nil)
+
         
     }
     
