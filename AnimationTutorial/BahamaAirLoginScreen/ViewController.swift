@@ -153,7 +153,7 @@ class ViewController: UIViewController {
       label.text = messages[index]
 
       UIView.transition(with: status, duration: 0.33,
-        options: [.curveEaseOut, .transitionFlipFromBottom],
+                        options: [.curveEaseOut, .transitionCurlDown],
         animations: {
           self.status.isHidden = false
         },
@@ -229,6 +229,7 @@ class ViewController: UIViewController {
           self.spinner.alpha = 1.0
         }, completion: nil)
 
+        
         
     }
     
