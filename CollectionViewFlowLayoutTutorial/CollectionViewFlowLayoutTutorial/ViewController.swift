@@ -34,7 +34,6 @@ class ViewController: UIViewController {
         layout.minimumLineSpacing = lineSpacing
         layout.scrollDirection = .horizontal
         collectionView.contentInset = UIEdgeInsets(top: insetY, left: insetX, bottom: insetY, right: insetX)
-        layout.
         collectionView.delegate = self
         collectionView.dataSource = self
         
