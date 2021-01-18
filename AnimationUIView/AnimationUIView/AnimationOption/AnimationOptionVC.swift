@@ -18,30 +18,36 @@ class AnimationOptionVC: UIViewController {
         super.viewDidLoad()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.terminal1.isHidden = true
+//        self.terminal2.isHidden = true
+//        self.terminal3.isHidden = true
+//        self.terminal4.isHidden = true
+    }
         
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        UIView.animate(withDuration: 3.0, delay: 0, options: [.curveLinear, .repeat], animations: {
-            
-            self.terminal1.frame.origin.x += 4 * self.terminal1.frame.width
+        UIView.transition(with: terminal1, duration: 1.5, options: [.transitionCurlUp], animations: {
+            self.terminal1.isHidden = false
         }, completion: nil)
         
         
-        UIView.animate(withDuration: 3.0, delay: 0, options: [.curveEaseIn, .repeat], animations: {
-            print(self.terminal2.frame.origin.x)
-            self.terminal2.frame.origin.x += 4 * self.terminal1.frame.width
-            
+        UIView.transition(with: terminal2, duration: 1.5, options: [.transitionFlipFromRight, .repeat], animations: {
+//            self.terminal2.isHidden = false
         }, completion: nil)
         
-        UIView.animate(withDuration: 3.0, delay: 0, options: [.curveEaseOut, .repeat], animations: {
-            self.terminal3.frame.origin.x += 4 * self.terminal1.frame.width
-            
+        
+        UIView.transition(with: terminal3, duration: 1.5, options:  [.transitionFlipFromTop, .repeat], animations: {
+//            self.terminal3.isHidden = false
         }, completion: nil)
         
-        UIView.animate(withDuration: 3.0, delay: 0, options: [.curveEaseInOut, .repeat], animations: {
-            self.terminal4.frame.origin.x += 4 * self.terminal1.frame.width
-            
+        
+        UIView.transition(with: terminal4, duration: 1.5, options: [.transitionFlipFromBottom, .repeat], animations: {
+//            self.terminal4.isHidden = false
         }, completion: nil)
         
     }

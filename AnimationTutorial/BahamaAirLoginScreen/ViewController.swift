@@ -140,7 +140,6 @@ class ViewController: UIViewController {
             self.cloud4.alpha = 1
         }, completion: nil)
         
-        
         animateCloud(cloud1)
         animateCloud(cloud2)
         animateCloud(cloud3)
@@ -153,7 +152,7 @@ class ViewController: UIViewController {
       label.text = messages[index]
 
       UIView.transition(with: status, duration: 0.33,
-                        options: [.curveEaseOut, .transitionCurlDown],
+                        options: [.curveEaseOut, .transitionCrossDissolve],
         animations: {
           self.status.isHidden = false
         },

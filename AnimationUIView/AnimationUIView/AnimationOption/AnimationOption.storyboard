@@ -17,25 +17,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terminal" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="qT9-Ia-EyD">
-                                <rect key="frame" x="50" y="170.66666666666666" width="61" height="97"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="xMv-z8-Tg5"/>
-                                </constraints>
+                                <rect key="frame" x="50" y="170.66666666666666" width="23.666666666666671" height="17.333333333333343"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terminal" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="P9Y-RF-Q0F">
-                                <rect key="frame" x="50" y="328.66666666666669" width="61" height="96.999999999999972"/>
+                                <rect key="frame" x="50" y="249" width="23.666666666666671" height="97.000000000000028"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="8y0-H8-Yse"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terminal" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GOo-UZ-Jwq">
-                                <rect key="frame" x="50" y="492.66666666666674" width="61" height="97"/>
+                                <rect key="frame" x="50" y="413" width="23.666666666666671" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="xel-Vt-SNx"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="terminal" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MEE-Qn-tyu">
-                                <rect key="frame" x="50" y="627.66666666666663" width="61" height="97"/>
+                                <rect key="frame" x="50" y="548" width="23.666666666666671" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="ncj-xw-1Tn"/>
                                 </constraints>
@@ -53,7 +50,6 @@
                             <constraint firstItem="P9Y-RF-Q0F" firstAttribute="top" secondItem="qT9-Ia-EyD" secondAttribute="bottom" constant="58" id="c3w-Vc-PwW"/>
                             <constraint firstItem="MEE-Qn-tyu" firstAttribute="trailing" secondItem="GOo-UZ-Jwq" secondAttribute="trailing" id="fTR-ad-xez"/>
                             <constraint firstItem="qT9-Ia-EyD" firstAttribute="trailing" secondItem="P9Y-RF-Q0F" secondAttribute="trailing" id="gHA-34-lcs"/>
-                            <constraint firstItem="Kqv-8F-3km" firstAttribute="trailing" secondItem="qT9-Ia-EyD" secondAttribute="trailing" constant="264" id="hUA-bD-FWF"/>
                             <constraint firstItem="qT9-Ia-EyD" firstAttribute="top" secondItem="Kqv-8F-3km" secondAttribute="top" constant="125" id="ql0-Kt-A04"/>
                             <constraint firstItem="qT9-Ia-EyD" firstAttribute="leading" secondItem="P9Y-RF-Q0F" secondAttribute="leading" id="yRH-5s-G2a"/>
                         </constraints>
