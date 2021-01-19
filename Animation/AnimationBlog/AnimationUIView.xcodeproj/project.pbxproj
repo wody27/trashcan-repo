@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D424254525B7227E00DFF785 /* AnimationKeyframes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D424254425B7227E00DFF785 /* AnimationKeyframes.storyboard */; };
+		D424254825B7228A00DFF785 /* KeyframesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D424254725B7228A00DFF785 /* KeyframesVC.swift */; };
 		D4D3B2BD25B4A810002E7ED9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D3B2BC25B4A810002E7ED9 /* AppDelegate.swift */; };
 		D4D3B2BF25B4A810002E7ED9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D3B2BE25B4A810002E7ED9 /* SceneDelegate.swift */; };
 		D4D3B2C125B4A810002E7ED9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D3B2C025B4A810002E7ED9 /* ViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D424254425B7227E00DFF785 /* AnimationKeyframes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimationKeyframes.storyboard; sourceTree = "<group>"; };
+		D424254725B7228A00DFF785 /* KeyframesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyframesVC.swift; sourceTree = "<group>"; };
 		D4D3B2B925B4A810002E7ED9 /* AnimationUIView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimationUIView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4D3B2BC25B4A810002E7ED9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4D3B2BE25B4A810002E7ED9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D424254A25B7229200DFF785 /* Keyframes */ = {
+			isa = PBXGroup;
+			children = (
+				D424254425B7227E00DFF785 /* AnimationKeyframes.storyboard */,
+				D424254725B7228A00DFF785 /* KeyframesVC.swift */,
+			);
+			path = Keyframes;
+			sourceTree = "<group>";
+		};
 		D4D3B2B025B4A810002E7ED9 = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				D4D3B2BC25B4A810002E7ED9 /* AppDelegate.swift */,
+				D424254A25B7229200DFF785 /* Keyframes */,
 				D4D3B2D925B5AC7D002E7ED9 /* AnimationOption */,
 				D4D3B2BE25B4A810002E7ED9 /* SceneDelegate.swift */,
 				D4D3B2D125B5AC27002E7ED9 /* Basic */,
@@ -148,6 +162,7 @@
 			files = (
 				D4D3B2C925B4A810002E7ED9 /* LaunchScreen.storyboard in Resources */,
 				D4D3B2C625B4A810002E7ED9 /* Assets.xcassets in Resources */,
+				D424254525B7227E00DFF785 /* AnimationKeyframes.storyboard in Resources */,
 				D4D3B2D425B5AC37002E7ED9 /* AnimationOption.storyboard in Resources */,
 				D4D3B2C425B4A810002E7ED9 /* Main.storyboard in Resources */,
 			);
@@ -164,6 +179,7 @@
 				D4D3B2C125B4A810002E7ED9 /* ViewController.swift in Sources */,
 				D4D3B2BD25B4A810002E7ED9 /* AppDelegate.swift in Sources */,
 				D4D3B2BF25B4A810002E7ED9 /* SceneDelegate.swift in Sources */,
+				D424254825B7228A00DFF785 /* KeyframesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
