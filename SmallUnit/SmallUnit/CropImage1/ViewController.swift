@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Mantis
 
 class ViewController: UIViewController {
 
@@ -74,6 +75,17 @@ class ViewController: UIViewController {
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    func cropViewControllerDidCrop(_ cropViewController: CropViewController, cropped: UIImage, transformation: Transformation) {
+        
+    }
+    
+    func cropViewControllerDidCancel(_ cropViewController: CropViewController, original: UIImage) {
+        
+    }
+    
+    
+    
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         self.chosenImage = info[.originalImage] as? UIImage
@@ -85,11 +97,19 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
 //            self.performSegue(withIdentifier: self.cropSegue, sender: nil)
 //        }
 //
-        guard let cropVC = self.storyboard?.instantiateViewController(identifier: "CropViewController") as? CropViewController else { return }
-        self.dismiss(animated: true) {
-            cropVC.initialImage = self.chosenImage
-            self.navigationController?.pushViewController(cropVC, animated: true)
-        }
+//        guard let cropVC = self.storyboard?.instantiateViewController(identifier: "CropViewController") as? CropViewController else { return }
+        
+//        guard let mantisVC = UIStoryboard.init(name: "Mantis", bundle: nil).instantiateViewController(identifier: "MantisVC") as? MantisVC else { return }
+       
+        let cropVC = Mantis.cropViewController(image: self.chosenImage ?? UIImage())
+        
+        cropVC.modalPresentationStyle = .fullScreen
+//        cropVC.delegate = self
+        present(cropVC, animated: true, completion: nil)
+//        self.dismiss(animated: true) {
+////            cropVC.initialImage = self.chosenImage
+//            self.navigationController?.pushViewController(mantisVC, animated: true)
+//        }
         
     }
     

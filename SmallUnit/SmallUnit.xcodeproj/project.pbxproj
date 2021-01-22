@@ -3,13 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		8FCD0D05BF3F98D948564F4B /* Pods_SmallUnit_SmallUnitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAA35A61020AE2DB6494051 /* Pods_SmallUnit_SmallUnitUITests.framework */; };
 		AB5ABA470806A682C74C004B /* Pods_SmallUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16EE3B250522868855158768 /* Pods_SmallUnitTests.framework */; };
 		D060BBD918A6C9C92FFC7408 /* Pods_SmallUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72ECD7ACBBC47DDD6F08B41A /* Pods_SmallUnit.framework */; };
+		D41A5E7C25BB04350071B0E5 /* DragAndDrop.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41A5E7B25BB04350071B0E5 /* DragAndDrop.storyboard */; };
+		D41A5E8125BB04400071B0E5 /* DragAndDropVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A5E8025BB04400071B0E5 /* DragAndDropVC.swift */; };
+		D41A5E8A25BB141A0071B0E5 /* DragInAreaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A5E8925BB141A0071B0E5 /* DragInAreaVC.swift */; };
+		D41A5E8F25BB14270071B0E5 /* DragInArea.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41A5E8E25BB14270071B0E5 /* DragInArea.storyboard */; };
 		D48D395B25B9D83C00604267 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48D395A25B9D83C00604267 /* AppDelegate.swift */; };
 		D48D395D25B9D83C00604267 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48D395C25B9D83C00604267 /* SceneDelegate.swift */; };
 		D48D395F25B9D83C00604267 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48D395E25B9D83C00604267 /* ViewController.swift */; };
@@ -21,6 +25,7 @@
 		D4DF4CDC25BAC07A00D191AA /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DF4CDB25BAC07A00D191AA /* CropViewController.swift */; };
 		D4DF4CE425BAD6D600D191AA /* Mantis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4DF4CE325BAD6D600D191AA /* Mantis.storyboard */; };
 		D4DF4CE925BAD6E000D191AA /* MantisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DF4CE825BAD6E000D191AA /* MantisVC.swift */; };
+		D4DF4CFD25BB033000D191AA /* Crop2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DF4CFC25BB033000D191AA /* Crop2ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,10 @@
 		966080D22DC09B632C836DF1 /* Pods-SmallUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmallUnitTests.release.xcconfig"; path = "Target Support Files/Pods-SmallUnitTests/Pods-SmallUnitTests.release.xcconfig"; sourceTree = "<group>"; };
 		98C587A56570637F1A4EEF6C /* Pods-SmallUnit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmallUnit.release.xcconfig"; path = "Target Support Files/Pods-SmallUnit/Pods-SmallUnit.release.xcconfig"; sourceTree = "<group>"; };
 		D395AD978027EB08A9E12058 /* Pods-SmallUnit-SmallUnitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmallUnit-SmallUnitUITests.debug.xcconfig"; path = "Target Support Files/Pods-SmallUnit-SmallUnitUITests/Pods-SmallUnit-SmallUnitUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D41A5E7B25BB04350071B0E5 /* DragAndDrop.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DragAndDrop.storyboard; sourceTree = "<group>"; };
+		D41A5E8025BB04400071B0E5 /* DragAndDropVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragAndDropVC.swift; sourceTree = "<group>"; };
+		D41A5E8925BB141A0071B0E5 /* DragInAreaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragInAreaVC.swift; sourceTree = "<group>"; };
+		D41A5E8E25BB14270071B0E5 /* DragInArea.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DragInArea.storyboard; sourceTree = "<group>"; };
 		D48D395725B9D83C00604267 /* SmallUnit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmallUnit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48D395A25B9D83C00604267 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D48D395C25B9D83C00604267 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +75,7 @@
 		D4DF4CDB25BAC07A00D191AA /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
 		D4DF4CE325BAD6D600D191AA /* Mantis.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Mantis.storyboard; sourceTree = "<group>"; };
 		D4DF4CE825BAD6E000D191AA /* MantisVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MantisVC.swift; sourceTree = "<group>"; };
+		D4DF4CFC25BB033000D191AA /* Crop2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crop2ViewController.swift; sourceTree = "<group>"; };
 		FD3712258A80F71849E834C5 /* Pods-SmallUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmallUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-SmallUnitTests/Pods-SmallUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,8 +127,25 @@
 				FD3712258A80F71849E834C5 /* Pods-SmallUnitTests.debug.xcconfig */,
 				966080D22DC09B632C836DF1 /* Pods-SmallUnitTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D41A5E8525BB04460071B0E5 /* DragAndDrop */ = {
+			isa = PBXGroup;
+			children = (
+				D41A5E7B25BB04350071B0E5 /* DragAndDrop.storyboard */,
+				D41A5E8025BB04400071B0E5 /* DragAndDropVC.swift */,
+			);
+			path = DragAndDrop;
+			sourceTree = "<group>";
+		};
+		D41A5E9325BB14350071B0E5 /* DragInArea */ = {
+			isa = PBXGroup;
+			children = (
+				D41A5E8925BB141A0071B0E5 /* DragInAreaVC.swift */,
+				D41A5E8E25BB14270071B0E5 /* DragInArea.storyboard */,
+			);
+			path = DragInArea;
 			sourceTree = "<group>";
 		};
 		D48D394E25B9D83C00604267 = {
@@ -151,6 +178,8 @@
 				D4DF4CED25BAD6E500D191AA /* Mantis */,
 				D4DF4CE225BAD6BD00D191AA /* CropImage1 */,
 				D48D396025B9D83C00604267 /* Main.storyboard */,
+				D41A5E8525BB04460071B0E5 /* DragAndDrop */,
+				D41A5E9325BB14350071B0E5 /* DragInArea */,
 				D48D396325B9D83C00604267 /* Assets.xcassets */,
 				D48D396525B9D83C00604267 /* LaunchScreen.storyboard */,
 				D48D396825B9D83C00604267 /* Info.plist */,
@@ -179,6 +208,7 @@
 		D4DF4CE225BAD6BD00D191AA /* CropImage1 */ = {
 			isa = PBXGroup;
 			children = (
+				D4DF4CFC25BB033000D191AA /* Crop2ViewController.swift */,
 				D48D395E25B9D83C00604267 /* ViewController.swift */,
 				D4DF4CDB25BAC07A00D191AA /* CropViewController.swift */,
 			);
@@ -302,7 +332,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D41A5E8F25BB14270071B0E5 /* DragInArea.storyboard in Resources */,
 				D4DF4CE425BAD6D600D191AA /* Mantis.storyboard in Resources */,
+				D41A5E7C25BB04350071B0E5 /* DragAndDrop.storyboard in Resources */,
 				D48D396725B9D83C00604267 /* LaunchScreen.storyboard in Resources */,
 				D48D396425B9D83C00604267 /* Assets.xcassets in Resources */,
 				D48D396225B9D83C00604267 /* Main.storyboard in Resources */,
@@ -434,10 +466,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D48D395F25B9D83C00604267 /* ViewController.swift in Sources */,
+				D4DF4CFD25BB033000D191AA /* Crop2ViewController.swift in Sources */,
 				D4DF4CE925BAD6E000D191AA /* MantisVC.swift in Sources */,
 				D48D395B25B9D83C00604267 /* AppDelegate.swift in Sources */,
+				D41A5E8A25BB141A0071B0E5 /* DragInAreaVC.swift in Sources */,
 				D4DF4CDC25BAC07A00D191AA /* CropViewController.swift in Sources */,
 				D48D395D25B9D83C00604267 /* SceneDelegate.swift in Sources */,
+				D41A5E8125BB04400071B0E5 /* DragAndDropVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@ target 'SmallUnit' do
   # Pods for SmallUnit
 
   pod 'Mantis', '~> 1.4.8'
+
   target 'SmallUnitTests' do
     inherit! :search_paths
     # Pods for testing

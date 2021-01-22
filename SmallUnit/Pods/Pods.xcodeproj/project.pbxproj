@@ -108,11 +108,11 @@
 		24228B2E5A4FD7D9FE59CBCD37CD18F9 /* MantisLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = MantisLocalizable.strings; path = en.lproj/MantisLocalizable.strings; sourceTree = "<group>"; };
 		253D13949F8AA1B479618B6A8D528C8D /* ImageContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImageContainer.swift; path = Sources/Mantis/CropView/ImageContainer.swift; sourceTree = "<group>"; };
 		26A0FC9E461DC6CC1730DAFE65EE685C /* CropViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CropViewController.swift; path = Sources/Mantis/CropViewController/CropViewController.swift; sourceTree = "<group>"; };
-		2A72994880425BB899A9359E08A68E72 /* Pods_SmallUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SmallUnitTests.framework; path = "Pods-SmallUnitTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A72994880425BB899A9359E08A68E72 /* Pods_SmallUnitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmallUnitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA6FF42549723BA4D544BE60EC3E4E1 /* CropView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CropView.swift; path = Sources/Mantis/CropView/CropView.swift; sourceTree = "<group>"; };
 		2FAD4115230A5B422AECFC96BF8F9F37 /* CropVisualEffectView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CropVisualEffectView.swift; path = Sources/Mantis/MaskBackground/CropVisualEffectView.swift; sourceTree = "<group>"; };
 		30E550A010C48F2F2786655508E3421A /* CGImageExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CGImageExtensions.swift; path = Sources/Mantis/Extensions/CGImageExtensions.swift; sourceTree = "<group>"; };
-		316D22F8B19400DBC5073973480D1521 /* Mantis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Mantis.framework; path = Mantis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		316D22F8B19400DBC5073973480D1521 /* Mantis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mantis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		354AB33D67AC1CB6F3A5EB2562A4372D /* MantisLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = MantisLocalizable.strings; path = "ko-KR.lproj/MantisLocalizable.strings"; sourceTree = "<group>"; };
 		363AA828281D3983E6BB2746A7B4F01C /* RatioPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RatioPresenter.swift; path = Sources/Mantis/CropViewController/RatioPresenter.swift; sourceTree = "<group>"; };
@@ -149,13 +149,13 @@
 		8F8561DF1F03C727120821A9D043138A /* CropMaskViewManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CropMaskViewManager.swift; path = Sources/Mantis/CropView/CropMaskViewManager.swift; sourceTree = "<group>"; };
 		901BFEDD51F8B9B8FEB99B22C40572B4 /* Pods-SmallUnitTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SmallUnitTests-umbrella.h"; sourceTree = "<group>"; };
 		92B65795804E1B7124755FC6F1F242D6 /* Pods-SmallUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SmallUnitTests.release.xcconfig"; sourceTree = "<group>"; };
-		97166FB90EE7FF7AFC87D0FE44EBD3DB /* Pods_SmallUnit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SmallUnit.framework; path = "Pods-SmallUnit.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		97166FB90EE7FF7AFC87D0FE44EBD3DB /* Pods_SmallUnit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmallUnit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9805031B1765BB6B89E36A88ADF23D61 /* CropDimmingView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CropDimmingView.swift; path = Sources/Mantis/MaskBackground/CropDimmingView.swift; sourceTree = "<group>"; };
 		9A0AC72A4DE8BE88813AB4276A290514 /* MantisLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = MantisLocalizable.strings; path = fr.lproj/MantisLocalizable.strings; sourceTree = "<group>"; };
 		9A91CF6EF820D9EB584C3DB098715BD2 /* DialConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DialConfig.swift; path = Sources/Mantis/RotationDial/DialConfig.swift; sourceTree = "<group>"; };
 		9AF62806DE793EE4E0C22B3C3FBC437E /* RotationDialViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RotationDialViewModel.swift; path = Sources/Mantis/RotationDial/RotationDialViewModel.swift; sourceTree = "<group>"; };
 		9B04575B8B6AE67DCAF9949B44F339A6 /* MantisLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = MantisLocalizable.strings; path = "zh-Hans.lproj/MantisLocalizable.strings"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A34EC88D3CF3CD4FA241795C202EE112 /* CropToolbarProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CropToolbarProtocol.swift; path = Sources/Mantis/CropViewController/CropToolbarProtocol.swift; sourceTree = "<group>"; };
 		A6F747D955FF78F213BC1A74D6B28C48 /* MantisLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = MantisLocalizable.strings; path = ko.lproj/MantisLocalizable.strings; sourceTree = "<group>"; };
 		A737976E4763A7C5BD23579BC5611EC7 /* CoreGraphicsExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CoreGraphicsExtensions.swift; path = Sources/Mantis/Extensions/CoreGraphicsExtensions.swift; sourceTree = "<group>"; };
@@ -174,12 +174,12 @@
 		D906205DB701B543FDBA687C94BE167C /* CropView+UIScrollViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CropView+UIScrollViewDelegate.swift"; path = "Sources/Mantis/CropView/CropView+UIScrollViewDelegate.swift"; sourceTree = "<group>"; };
 		DA09EB03649FA2EAAE7ADEFEBCDDB3F0 /* RotationDial+Touches.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "RotationDial+Touches.swift"; path = "Sources/Mantis/RotationDial/RotationDial+Touches.swift"; sourceTree = "<group>"; };
 		DE40FC203C695551E7B955E0BBD503B6 /* CropBoxFreeAspectFrameUpdater.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CropBoxFreeAspectFrameUpdater.swift; path = Sources/Mantis/CropView/CropBoxFreeAspectFrameUpdater.swift; sourceTree = "<group>"; };
-		E4BEFC3EC59E2FC20A00BECBF928F938 /* Resource.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Resource.bundle; path = "Mantis-Resource.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4BEFC3EC59E2FC20A00BECBF928F938 /* Resource.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Resource.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E257E6857F444127ACB0DC3A66A17F /* MantisLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = MantisLocalizable.strings; path = "pt-PT.lproj/MantisLocalizable.strings"; sourceTree = "<group>"; };
 		E8640D82E2D3A7AB05BB81ABA6DCF5E0 /* Mantis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Mantis.release.xcconfig; sourceTree = "<group>"; };
 		E9D323FE569ACBC43919EA662BFCF99A /* MantisLocalizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = MantisLocalizable.strings; path = ru.lproj/MantisLocalizable.strings; sourceTree = "<group>"; };
 		F019986BC91DAC9359EEF99BD9CE5A82 /* Pods-SmallUnit-SmallUnitUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SmallUnit-SmallUnitUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		F064920BB0864AB4EBF792422AB736D9 /* Pods_SmallUnit_SmallUnitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SmallUnit_SmallUnitUITests.framework; path = "Pods-SmallUnit-SmallUnitUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F064920BB0864AB4EBF792422AB736D9 /* Pods_SmallUnit_SmallUnitUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmallUnit_SmallUnitUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2085BEB80ACCAB132A6AD668A924654 /* RotationDialPlate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RotationDialPlate.swift; path = Sources/Mantis/RotationDial/RotationDialPlate.swift; sourceTree = "<group>"; };
 		F3B099ACF06F0DCC206D336DACE84D4D /* RatioOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RatioOptions.swift; path = Sources/Mantis/RatioOptions.swift; sourceTree = "<group>"; };
 		F4D66A01D0CCB78E37BDF65BB1E0D24D /* Pods-SmallUnit-SmallUnitUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SmallUnit-SmallUnitUITests-Info.plist"; sourceTree = "<group>"; };
@@ -294,7 +294,6 @@
 				B13097853E65363B70EBE7C46675DFC7 /* Resources */,
 				B44E9F2D0D24B8E05EA43104745BD177 /* Support Files */,
 			);
-			name = Mantis;
 			path = Mantis;
 			sourceTree = "<group>";
 		};
@@ -560,6 +559,18 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
+				de,
+				es,
+				fr,
+				it,
+				ja,
+				"ko-KR",
+				ko,
+				"pt-PT",
+				ru,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 5D0C866EA2C3276993026AF22DAC66DD /* Products */;

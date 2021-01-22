@@ -12,34 +12,6 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SmallUnit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFt-EG-YTv">
-                                <rect key="frame" x="312" y="852" width="82" height="30"/>
-                                <state key="normal" title="색 변하게하기"/>
-                                <connections>
-                                    <action selector="backgroundColorChangedTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rW9-pv-Iyv"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7WB-Zk-KYk">
-                                <rect key="frame" x="87" y="248" width="240" height="240"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="7WB-Zk-KYk" secondAttribute="height" id="08n-IN-fHy"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="cFt-EG-YTv" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="20" id="1kc-ug-I1E"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cFt-EG-YTv" secondAttribute="trailing" constant="20" id="3Fp-G5-2Bk"/>
-                            <constraint firstItem="7WB-Zk-KYk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="3gK-4L-IPf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7WB-Zk-KYk" secondAttribute="trailing" constant="87" id="RA4-dF-b2W"/>
-                            <constraint firstItem="7WB-Zk-KYk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="160" id="pUb-Jg-0Qp"/>
-                        </constraints>
-                    </view>
                     <navigationItem key="navigationItem" title="선물 등록" id="LUT-Mv-2iN">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="S4j-9K-Tkv">
                             <connections>
@@ -47,13 +19,25 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="imageView" destination="7WB-Zk-KYk" id="GaE-bE-aaX"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="113.83928571428571"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="LRK-B0-p6W">
+            <objects>
+                <viewController id="MRx-rZ-7pW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h64-zW-0oR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="sOF-BJ-1vW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7fA-Bl-9GO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1008" y="887"/>
         </scene>
         <!--Crop View Controller-->
         <scene sceneID="CA2-ba-3dg">
