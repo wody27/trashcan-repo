@@ -1,15 +1,17 @@
 # 딥러닝 스터디 
 
+- Logistic Regression Classification
+- Softmax Classification (Multinomial중 하나)
+- Application & Tips: Learning rate, data preprocessing, overfitting
+- Model Training set에 대해서
+- 끝!
 
-
-- 텐서플로우는 data flow graphs를 이용해 numerical 계산을 위한 오픈 소스 라이브러리고, 파이썬으로 사용이 가능하다.
-- graphs는 노드와 엣지로 이루어진 형태를 말하는데 Data flow graph도 비슷한 형태를 의미한다. 
--  
+오늘 30분 안에 끝나는게 목표입니다~!
 
 ## Logistic Classfication
 
-- 이 알고리즘은 다른 것들에 비해 정확도가 높다.
-- 딥러닝을 이해하는데 정말 중요하다.
+- 이 알고리즘은 다른 것들에 비해 정확도가 높아요.
+- 딥러닝을 이해하는데 정말 중요합니다.
 
 ### 복습
 
