@@ -1,0 +1,6 @@
+framework module Pods_SmallUnit {
+  umbrella header "Pods-SmallUnit-umbrella.h"
+
+  export *
+  module * { export * }
+}
