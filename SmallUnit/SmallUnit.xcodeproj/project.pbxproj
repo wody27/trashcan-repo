@@ -14,6 +14,9 @@
 		D41A5E8125BB04400071B0E5 /* DragAndDropVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A5E8025BB04400071B0E5 /* DragAndDropVC.swift */; };
 		D41A5E8A25BB141A0071B0E5 /* DragInAreaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A5E8925BB141A0071B0E5 /* DragInAreaVC.swift */; };
 		D41A5E8F25BB14270071B0E5 /* DragInArea.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41A5E8E25BB14270071B0E5 /* DragInArea.storyboard */; };
+		D41A5E9825BB19C10071B0E5 /* PhotoUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41A5E9725BB19C10071B0E5 /* PhotoUI.storyboard */; };
+		D41A5E9D25BB19CC0071B0E5 /* PhtotoUIVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A5E9C25BB19CC0071B0E5 /* PhtotoUIVC.swift */; };
+		D449BA8B25BC07770052773A /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D449BA8A25BC07770052773A /* MainVC.swift */; };
 		D48D395B25B9D83C00604267 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48D395A25B9D83C00604267 /* AppDelegate.swift */; };
 		D48D395D25B9D83C00604267 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48D395C25B9D83C00604267 /* SceneDelegate.swift */; };
 		D48D395F25B9D83C00604267 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48D395E25B9D83C00604267 /* ViewController.swift */; };
@@ -58,6 +61,9 @@
 		D41A5E8025BB04400071B0E5 /* DragAndDropVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragAndDropVC.swift; sourceTree = "<group>"; };
 		D41A5E8925BB141A0071B0E5 /* DragInAreaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragInAreaVC.swift; sourceTree = "<group>"; };
 		D41A5E8E25BB14270071B0E5 /* DragInArea.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DragInArea.storyboard; sourceTree = "<group>"; };
+		D41A5E9725BB19C10071B0E5 /* PhotoUI.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoUI.storyboard; sourceTree = "<group>"; };
+		D41A5E9C25BB19CC0071B0E5 /* PhtotoUIVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhtotoUIVC.swift; sourceTree = "<group>"; };
+		D449BA8A25BC07770052773A /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		D48D395725B9D83C00604267 /* SmallUnit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmallUnit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48D395A25B9D83C00604267 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D48D395C25B9D83C00604267 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,8 +150,18 @@
 			children = (
 				D41A5E8925BB141A0071B0E5 /* DragInAreaVC.swift */,
 				D41A5E8E25BB14270071B0E5 /* DragInArea.storyboard */,
+				D449BA8A25BC07770052773A /* MainVC.swift */,
 			);
 			path = DragInArea;
+			sourceTree = "<group>";
+		};
+		D41A5EA125BB19D20071B0E5 /* PhotoUI */ = {
+			isa = PBXGroup;
+			children = (
+				D41A5E9725BB19C10071B0E5 /* PhotoUI.storyboard */,
+				D41A5E9C25BB19CC0071B0E5 /* PhtotoUIVC.swift */,
+			);
+			path = PhotoUI;
 			sourceTree = "<group>";
 		};
 		D48D394E25B9D83C00604267 = {
@@ -181,6 +197,7 @@
 				D41A5E8525BB04460071B0E5 /* DragAndDrop */,
 				D41A5E9325BB14350071B0E5 /* DragInArea */,
 				D48D396325B9D83C00604267 /* Assets.xcassets */,
+				D41A5EA125BB19D20071B0E5 /* PhotoUI */,
 				D48D396525B9D83C00604267 /* LaunchScreen.storyboard */,
 				D48D396825B9D83C00604267 /* Info.plist */,
 			);
@@ -334,6 +351,7 @@
 			files = (
 				D41A5E8F25BB14270071B0E5 /* DragInArea.storyboard in Resources */,
 				D4DF4CE425BAD6D600D191AA /* Mantis.storyboard in Resources */,
+				D41A5E9825BB19C10071B0E5 /* PhotoUI.storyboard in Resources */,
 				D41A5E7C25BB04350071B0E5 /* DragAndDrop.storyboard in Resources */,
 				D48D396725B9D83C00604267 /* LaunchScreen.storyboard in Resources */,
 				D48D396425B9D83C00604267 /* Assets.xcassets in Resources */,
@@ -466,12 +484,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D48D395F25B9D83C00604267 /* ViewController.swift in Sources */,
+				D449BA8B25BC07770052773A /* MainVC.swift in Sources */,
 				D4DF4CFD25BB033000D191AA /* Crop2ViewController.swift in Sources */,
 				D4DF4CE925BAD6E000D191AA /* MantisVC.swift in Sources */,
 				D48D395B25B9D83C00604267 /* AppDelegate.swift in Sources */,
 				D41A5E8A25BB141A0071B0E5 /* DragInAreaVC.swift in Sources */,
 				D4DF4CDC25BAC07A00D191AA /* CropViewController.swift in Sources */,
 				D48D395D25B9D83C00604267 /* SceneDelegate.swift in Sources */,
+				D41A5E9D25BB19CC0071B0E5 /* PhtotoUIVC.swift in Sources */,
 				D41A5E8125BB04400071B0E5 /* DragAndDropVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

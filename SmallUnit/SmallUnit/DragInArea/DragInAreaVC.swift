@@ -6,24 +6,48 @@
 //
 
 import UIKit
+import PhotosUI
 
 class DragInAreaVC: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBOutlet weak var imageView: UIImageView!
 
-        // Do any additional setup after loading the view.
+    @IBAction func imageUpload(_ sender: UIButton) {
+        
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        configuration.selectionLimit = 1
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        
+        let nav = UINavigationController(rootViewController: picker)
+        nav.modalPresentationStyle = .fullScreen
+        nav.isNavigationBarHidden = true
+        present(nav, animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func patchSticker(_ sender: Any) {
+        
+        
     }
-    */
+}
 
+extension DragInAreaVC: PHPickerViewControllerDelegate {
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        dismiss(animated: true, completion: nil)
+        
+        if let itemProvider = results.first?.itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+            let previousImage = imageView.image
+            itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                DispatchQueue.main.sync() {
+                    guard let self = self, let image = image as? UIImage, self.imageView.image == previousImage else { return }
+                    self.imageView.image = image
+                }
+            }
+        }
+    }
+    
 }
