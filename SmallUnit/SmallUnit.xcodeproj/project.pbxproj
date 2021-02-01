@@ -17,6 +17,7 @@
 		D41A5E9825BB19C10071B0E5 /* PhotoUI.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D41A5E9725BB19C10071B0E5 /* PhotoUI.storyboard */; };
 		D41A5E9D25BB19CC0071B0E5 /* PhtotoUIVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A5E9C25BB19CC0071B0E5 /* PhtotoUIVC.swift */; };
 		D449BA8B25BC07770052773A /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D449BA8A25BC07770052773A /* MainVC.swift */; };
+		D473EA7F25BE8EBB0062BA7F /* CropVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D473EA7E25BE8EBB0062BA7F /* CropVC.swift */; };
 		D48D395B25B9D83C00604267 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48D395A25B9D83C00604267 /* AppDelegate.swift */; };
 		D48D395D25B9D83C00604267 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48D395C25B9D83C00604267 /* SceneDelegate.swift */; };
 		D48D395F25B9D83C00604267 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48D395E25B9D83C00604267 /* ViewController.swift */; };
@@ -64,6 +65,7 @@
 		D41A5E9725BB19C10071B0E5 /* PhotoUI.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoUI.storyboard; sourceTree = "<group>"; };
 		D41A5E9C25BB19CC0071B0E5 /* PhtotoUIVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhtotoUIVC.swift; sourceTree = "<group>"; };
 		D449BA8A25BC07770052773A /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		D473EA7E25BE8EBB0062BA7F /* CropVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropVC.swift; sourceTree = "<group>"; };
 		D48D395725B9D83C00604267 /* SmallUnit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmallUnit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48D395A25B9D83C00604267 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D48D395C25B9D83C00604267 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				D41A5E8925BB141A0071B0E5 /* DragInAreaVC.swift */,
+				D473EA7E25BE8EBB0062BA7F /* CropVC.swift */,
 				D41A5E8E25BB14270071B0E5 /* DragInArea.storyboard */,
 				D449BA8A25BC07770052773A /* MainVC.swift */,
 			);
@@ -485,6 +488,7 @@
 			files = (
 				D48D395F25B9D83C00604267 /* ViewController.swift in Sources */,
 				D449BA8B25BC07770052773A /* MainVC.swift in Sources */,
+				D473EA7F25BE8EBB0062BA7F /* CropVC.swift in Sources */,
 				D4DF4CFD25BB033000D191AA /* Crop2ViewController.swift in Sources */,
 				D4DF4CE925BAD6E000D191AA /* MantisVC.swift in Sources */,
 				D48D395B25B9D83C00604267 /* AppDelegate.swift in Sources */,

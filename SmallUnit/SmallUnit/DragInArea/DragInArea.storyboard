@@ -131,6 +131,72 @@
             </objects>
             <point key="canvasLocation" x="367" y="121"/>
         </scene>
+        <!--CropVC-->
+        <scene sceneID="b3L-en-D0J">
+            <objects>
+                <viewController storyboardIdentifier="CropVC" id="RI4-GQ-xKq" customClass="CropVC" customModule="SmallUnit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ISy-Ez-azY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cph-HW-CKp" userLabel="Container">
+                                <rect key="frame" x="0.0" y="44" width="414" height="518"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gs-ek-lfs">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="518"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gY4-Kr-ZCz">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="518"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="gY4-Kr-ZCz" firstAttribute="leading" secondItem="2gs-ek-lfs" secondAttribute="leading" id="CiM-rU-aVO"/>
+                                            <constraint firstItem="gY4-Kr-ZCz" firstAttribute="top" secondItem="2gs-ek-lfs" secondAttribute="top" id="MGv-mh-cnJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="gY4-Kr-ZCz" secondAttribute="bottom" id="adg-LO-nR0"/>
+                                            <constraint firstAttribute="trailing" secondItem="gY4-Kr-ZCz" secondAttribute="trailing" id="iVi-sJ-ZNL"/>
+                                        </constraints>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="gY4-Kr-ZCz" firstAttribute="height" secondItem="cph-HW-CKp" secondAttribute="height" id="GfD-AU-8xQ"/>
+                                    <constraint firstItem="2gs-ek-lfs" firstAttribute="top" secondItem="cph-HW-CKp" secondAttribute="top" id="HpI-q4-0we"/>
+                                    <constraint firstAttribute="trailing" secondItem="2gs-ek-lfs" secondAttribute="trailing" id="JgM-UV-i90"/>
+                                    <constraint firstItem="2gs-ek-lfs" firstAttribute="leading" secondItem="cph-HW-CKp" secondAttribute="leading" id="TRC-gv-GVN"/>
+                                    <constraint firstAttribute="bottom" secondItem="2gs-ek-lfs" secondAttribute="bottom" id="bke-RV-px9"/>
+                                    <constraint firstItem="gY4-Kr-ZCz" firstAttribute="width" secondItem="cph-HW-CKp" secondAttribute="width" id="lAY-Ul-PKq"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wOj-VB-71x">
+                                <rect key="frame" x="184" y="705" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="dismiss:" destination="RI4-GQ-xKq" eventType="touchUpInside" id="qHc-1G-hEA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yb5-w7-bbE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wOj-VB-71x" firstAttribute="leading" secondItem="yb5-w7-bbE" secondAttribute="leading" constant="184" id="045-xr-Mz2"/>
+                            <constraint firstItem="yb5-w7-bbE" firstAttribute="bottom" secondItem="cph-HW-CKp" secondAttribute="bottom" constant="300" id="6Kn-Vv-cFe"/>
+                            <constraint firstItem="yb5-w7-bbE" firstAttribute="trailing" secondItem="cph-HW-CKp" secondAttribute="trailing" id="Bfk-CF-5qD"/>
+                            <constraint firstItem="yb5-w7-bbE" firstAttribute="trailing" secondItem="wOj-VB-71x" secondAttribute="trailing" constant="184" id="JOl-7K-QzR"/>
+                            <constraint firstItem="yb5-w7-bbE" firstAttribute="bottom" secondItem="wOj-VB-71x" secondAttribute="bottom" constant="127" id="TJb-CF-azu"/>
+                            <constraint firstItem="wOj-VB-71x" firstAttribute="top" secondItem="cph-HW-CKp" secondAttribute="bottom" constant="143" id="VG8-85-mfx"/>
+                            <constraint firstItem="cph-HW-CKp" firstAttribute="leading" secondItem="yb5-w7-bbE" secondAttribute="leading" id="WIu-Jy-Jy3"/>
+                            <constraint firstItem="cph-HW-CKp" firstAttribute="top" secondItem="yb5-w7-bbE" secondAttribute="top" id="Zs9-f3-mzq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="gY4-Kr-ZCz" id="jOg-6M-q6u"/>
+                        <outlet property="scrollView" destination="2gs-ek-lfs" id="abR-FH-ZKM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O5L-Kw-P8O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="346" y="764"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

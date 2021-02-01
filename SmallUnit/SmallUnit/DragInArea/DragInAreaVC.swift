@@ -37,7 +37,13 @@ class DragInAreaVC: UIViewController {
 extension DragInAreaVC: PHPickerViewControllerDelegate {
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        dismiss(animated: true, completion: nil)
+        print("FiRST")
+        guard let cropvc = self.storyboard?.instantiateViewController(identifier: "CropVC") as? CropVC else { return }
+        print("HELLO")
+        
+        self.dismiss(animated: true) {
+            self.navigationController?.pushViewController(cropvc, animated: true)
+        }
         
         if let itemProvider = results.first?.itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
             let previousImage = imageView.image
