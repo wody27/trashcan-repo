@@ -7,31 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D405633D2628354F003A0A78 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D405633C2628354F003A0A78 /* KeychainManager.swift */; };
-		D4787F292625CA730029A22E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4787F282625CA730029A22E /* AppDelegate.swift */; };
-		D4787F2B2625CA730029A22E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4787F2A2625CA730029A22E /* SceneDelegate.swift */; };
-		D4787F2D2625CA730029A22E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4787F2C2625CA730029A22E /* ViewController.swift */; };
-		D4787F302625CA730029A22E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4787F2E2625CA730029A22E /* Main.storyboard */; };
-		D4787F322625CA740029A22E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4787F312625CA740029A22E /* Assets.xcassets */; };
-		D4787F352625CA740029A22E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4787F332625CA740029A22E /* LaunchScreen.storyboard */; };
-		D4787F3E2625D8150029A22E /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4787F3D2625D8150029A22E /* MainVC.swift */; };
+		D456C33D26284D1E000A2211 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456C33C26284D1E000A2211 /* AppDelegate.swift */; };
+		D456C34126284D1E000A2211 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456C34026284D1E000A2211 /* ViewController.swift */; };
+		D456C34626284D1F000A2211 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D456C34526284D1F000A2211 /* Assets.xcassets */; };
+		D456C34926284D1F000A2211 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D456C34726284D1F000A2211 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D405633C2628354F003A0A78 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
-		D4787F252625CA730029A22E /* KeyChainTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyChainTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D4787F282625CA730029A22E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D4787F2A2625CA730029A22E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D4787F2C2625CA730029A22E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D4787F2F2625CA730029A22E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D4787F312625CA740029A22E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D4787F342625CA740029A22E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D4787F362625CA740029A22E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D4787F3D2625D8150029A22E /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		D456C33926284D1E000A2211 /* CalendarTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D456C33C26284D1E000A2211 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D456C34026284D1E000A2211 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D456C34526284D1F000A2211 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D456C34826284D1F000A2211 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D456C34A26284D1F000A2211 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D4787F222625CA730029A22E /* Frameworks */ = {
+		D456C33626284D1E000A2211 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,81 +33,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D4787F1C2625CA730029A22E = {
+		D456C33026284D1E000A2211 = {
 			isa = PBXGroup;
 			children = (
-				D4787F272625CA730029A22E /* KeyChainTutorial */,
-				D4787F262625CA730029A22E /* Products */,
+				D456C33B26284D1E000A2211 /* CalendarTutorial */,
+				D456C33A26284D1E000A2211 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D4787F262625CA730029A22E /* Products */ = {
+		D456C33A26284D1E000A2211 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D4787F252625CA730029A22E /* KeyChainTutorial.app */,
+				D456C33926284D1E000A2211 /* CalendarTutorial.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D4787F272625CA730029A22E /* KeyChainTutorial */ = {
+		D456C33B26284D1E000A2211 /* CalendarTutorial */ = {
 			isa = PBXGroup;
 			children = (
-				D4787F282625CA730029A22E /* AppDelegate.swift */,
-				D4787F2A2625CA730029A22E /* SceneDelegate.swift */,
-				D405633C2628354F003A0A78 /* KeychainManager.swift */,
-				D4787F402625D8A60029A22E /* Views */,
-				D4787F312625CA740029A22E /* Assets.xcassets */,
-				D4787F332625CA740029A22E /* LaunchScreen.storyboard */,
-				D4787F362625CA740029A22E /* Info.plist */,
+				D456C33C26284D1E000A2211 /* AppDelegate.swift */,
+				D456C34026284D1E000A2211 /* ViewController.swift */,
+				D456C34526284D1F000A2211 /* Assets.xcassets */,
+				D456C34726284D1F000A2211 /* LaunchScreen.storyboard */,
+				D456C34A26284D1F000A2211 /* Info.plist */,
 			);
-			path = KeyChainTutorial;
-			sourceTree = "<group>";
-		};
-		D4787F402625D8A60029A22E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				D4787F2C2625CA730029A22E /* ViewController.swift */,
-				D4787F2E2625CA730029A22E /* Main.storyboard */,
-				D4787F3D2625D8150029A22E /* MainVC.swift */,
-			);
-			path = Views;
+			path = CalendarTutorial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D4787F242625CA730029A22E /* KeyChainTutorial */ = {
+		D456C33826284D1E000A2211 /* CalendarTutorial */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4787F392625CA740029A22E /* Build configuration list for PBXNativeTarget "KeyChainTutorial" */;
+			buildConfigurationList = D456C34D26284D1F000A2211 /* Build configuration list for PBXNativeTarget "CalendarTutorial" */;
 			buildPhases = (
-				D4787F212625CA730029A22E /* Sources */,
-				D4787F222625CA730029A22E /* Frameworks */,
-				D4787F232625CA730029A22E /* Resources */,
+				D456C33526284D1E000A2211 /* Sources */,
+				D456C33626284D1E000A2211 /* Frameworks */,
+				D456C33726284D1E000A2211 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = KeyChainTutorial;
-			productName = KeyChainTutorial;
-			productReference = D4787F252625CA730029A22E /* KeyChainTutorial.app */;
+			name = CalendarTutorial;
+			productName = CalendarTutorial;
+			productReference = D456C33926284D1E000A2211 /* CalendarTutorial.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D4787F1D2625CA730029A22E /* Project object */ = {
+		D456C33126284D1E000A2211 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
-					D4787F242625CA730029A22E = {
+					D456C33826284D1E000A2211 = {
 						CreatedOnToolsVersion = 12.4;
 					};
 				};
 			};
-			buildConfigurationList = D4787F202625CA730029A22E /* Build configuration list for PBXProject "KeyChainTutorial" */;
+			buildConfigurationList = D456C33426284D1E000A2211 /* Build configuration list for PBXProject "CalendarTutorial" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -123,57 +103,45 @@
 				en,
 				Base,
 			);
-			mainGroup = D4787F1C2625CA730029A22E;
-			productRefGroup = D4787F262625CA730029A22E /* Products */;
+			mainGroup = D456C33026284D1E000A2211;
+			productRefGroup = D456C33A26284D1E000A2211 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D4787F242625CA730029A22E /* KeyChainTutorial */,
+				D456C33826284D1E000A2211 /* CalendarTutorial */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D4787F232625CA730029A22E /* Resources */ = {
+		D456C33726284D1E000A2211 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4787F352625CA740029A22E /* LaunchScreen.storyboard in Resources */,
-				D4787F322625CA740029A22E /* Assets.xcassets in Resources */,
-				D4787F302625CA730029A22E /* Main.storyboard in Resources */,
+				D456C34926284D1F000A2211 /* LaunchScreen.storyboard in Resources */,
+				D456C34626284D1F000A2211 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D4787F212625CA730029A22E /* Sources */ = {
+		D456C33526284D1E000A2211 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4787F2D2625CA730029A22E /* ViewController.swift in Sources */,
-				D4787F3E2625D8150029A22E /* MainVC.swift in Sources */,
-				D4787F292625CA730029A22E /* AppDelegate.swift in Sources */,
-				D4787F2B2625CA730029A22E /* SceneDelegate.swift in Sources */,
-				D405633D2628354F003A0A78 /* KeychainManager.swift in Sources */,
+				D456C34126284D1E000A2211 /* ViewController.swift in Sources */,
+				D456C33D26284D1E000A2211 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D4787F2E2625CA730029A22E /* Main.storyboard */ = {
+		D456C34726284D1F000A2211 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D4787F2F2625CA730029A22E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		D4787F332625CA740029A22E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D4787F342625CA740029A22E /* Base */,
+				D456C34826284D1F000A2211 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -181,7 +149,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		D4787F372625CA740029A22E /* Debug */ = {
+		D456C34B26284D1F000A2211 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -242,7 +210,7 @@
 			};
 			name = Debug;
 		};
-		D4787F382625CA740029A22E /* Release */ = {
+		D456C34C26284D1F000A2211 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -297,38 +265,38 @@
 			};
 			name = Release;
 		};
-		D4787F3A2625CA740029A22E /* Debug */ = {
+		D456C34E26284D1F000A2211 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZVHD77BLL;
-				INFOPLIST_FILE = KeyChainTutorial/Info.plist;
+				INFOPLIST_FILE = CalendarTutorial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jaeyong.KeyChainTutorial;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jaeyong.CalendarTutorial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		D4787F3B2625CA740029A22E /* Release */ = {
+		D456C34F26284D1F000A2211 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TZVHD77BLL;
-				INFOPLIST_FILE = KeyChainTutorial/Info.plist;
+				INFOPLIST_FILE = CalendarTutorial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.jaeyong.KeyChainTutorial;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jaeyong.CalendarTutorial;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -338,25 +306,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D4787F202625CA730029A22E /* Build configuration list for PBXProject "KeyChainTutorial" */ = {
+		D456C33426284D1E000A2211 /* Build configuration list for PBXProject "CalendarTutorial" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D4787F372625CA740029A22E /* Debug */,
-				D4787F382625CA740029A22E /* Release */,
+				D456C34B26284D1F000A2211 /* Debug */,
+				D456C34C26284D1F000A2211 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4787F392625CA740029A22E /* Build configuration list for PBXNativeTarget "KeyChainTutorial" */ = {
+		D456C34D26284D1F000A2211 /* Build configuration list for PBXNativeTarget "CalendarTutorial" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D4787F3A2625CA740029A22E /* Debug */,
-				D4787F3B2625CA740029A22E /* Release */,
+				D456C34E26284D1F000A2211 /* Debug */,
+				D456C34F26284D1F000A2211 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D4787F1D2625CA730029A22E /* Project object */;
+	rootObject = D456C33126284D1E000A2211 /* Project object */;
 }

@@ -59,17 +59,26 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liH-vH-W3Q">
+                                <rect key="frame" x="162.66666666666666" y="442" width="65" height="30"/>
+                                <state key="normal" title="로그인하기">
+                                    <color key="titleColor" systemColor="systemGreenColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="KBk-SO-UQs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="OVL-r8-SPf"/>
+                            <constraint firstItem="liH-vH-W3Q" firstAttribute="top" secondItem="KBk-SO-UQs" secondAttribute="bottom" constant="100" id="bZc-D8-ttT"/>
                             <constraint firstItem="KBk-SO-UQs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ixC-z4-c5X"/>
+                            <constraint firstItem="liH-vH-W3Q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xw3-ie-F4f"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="idLabel" destination="VFW-xr-StD" id="VKq-wp-l5d"/>
                         <outlet property="idTextField" destination="tEP-vd-8Z0" id="Yra-nh-M0P"/>
+                        <outlet property="loginButton" destination="liH-vH-W3Q" id="sG4-5p-hR0"/>
                         <outlet property="passwordLabel" destination="PdV-p9-uyw" id="BfS-nA-qqc"/>
                         <outlet property="passwordTextField" destination="0i9-05-ygb" id="9cj-AB-uMa"/>
                     </connections>
@@ -78,10 +87,40 @@
             </objects>
             <point key="canvasLocation" x="109" y="126"/>
         </scene>
+        <!--MainVC-->
+        <scene sceneID="9g0-sf-iVu">
+            <objects>
+                <viewController storyboardIdentifier="MainVC" id="plx-AA-QTt" customClass="MainVC" customModule="KeyChainTutorial" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eYL-D8-tpU">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🍎" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vI-LX-UZ5">
+                                <rect key="frame" x="183.66666666666666" y="411.66666666666669" width="23" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qhb-M3-eEb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1vI-LX-UZ5" firstAttribute="centerX" secondItem="eYL-D8-tpU" secondAttribute="centerX" id="UJk-Yg-JoN"/>
+                            <constraint firstItem="1vI-LX-UZ5" firstAttribute="centerY" secondItem="eYL-D8-tpU" secondAttribute="centerY" id="dKl-Fy-wDv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kzS-l5-gB3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="877" y="126"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
