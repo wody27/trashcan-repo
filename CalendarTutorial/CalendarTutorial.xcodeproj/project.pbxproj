@@ -7,19 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D40697F026294D5300C4C831 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40697EF26294D5300C4C831 /* Extension+UIColor.swift */; };
+		D40697F32629521300C4C831 /* WeekdaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40697F22629521300C4C831 /* WeekdaysView.swift */; };
 		D456C33D26284D1E000A2211 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456C33C26284D1E000A2211 /* AppDelegate.swift */; };
 		D456C34126284D1E000A2211 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456C34026284D1E000A2211 /* ViewController.swift */; };
 		D456C34626284D1F000A2211 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D456C34526284D1F000A2211 /* Assets.xcassets */; };
 		D456C34926284D1F000A2211 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D456C34726284D1F000A2211 /* LaunchScreen.storyboard */; };
+		D456C35B262851E9000A2211 /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D456C35A262851E9000A2211 /* MonthView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D40697EF26294D5300C4C831 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
+		D40697F22629521300C4C831 /* WeekdaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdaysView.swift; sourceTree = "<group>"; };
 		D456C33926284D1E000A2211 /* CalendarTutorial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarTutorial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D456C33C26284D1E000A2211 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D456C34026284D1E000A2211 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D456C34526284D1F000A2211 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D456C34826284D1F000A2211 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D456C34A26284D1F000A2211 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D456C35A262851E9000A2211 /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +39,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D40697F5262953AB00C4C831 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				D456C35A262851E9000A2211 /* MonthView.swift */,
+				D40697F22629521300C4C831 /* WeekdaysView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		D456C33026284D1E000A2211 = {
 			isa = PBXGroup;
 			children = (
@@ -53,6 +68,8 @@
 			isa = PBXGroup;
 			children = (
 				D456C33C26284D1E000A2211 /* AppDelegate.swift */,
+				D40697F5262953AB00C4C831 /* Calendar */,
+				D40697EF26294D5300C4C831 /* Extension+UIColor.swift */,
 				D456C34026284D1E000A2211 /* ViewController.swift */,
 				D456C34526284D1F000A2211 /* Assets.xcassets */,
 				D456C34726284D1F000A2211 /* LaunchScreen.storyboard */,
@@ -131,7 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D456C34126284D1E000A2211 /* ViewController.swift in Sources */,
+				D456C35B262851E9000A2211 /* MonthView.swift in Sources */,
 				D456C33D26284D1E000A2211 /* AppDelegate.swift in Sources */,
+				D40697F32629521300C4C831 /* WeekdaysView.swift in Sources */,
+				D40697F026294D5300C4C831 /* Extension+UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
