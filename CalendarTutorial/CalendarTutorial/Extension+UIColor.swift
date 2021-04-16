@@ -10,10 +10,10 @@ import UIKit
 
 struct Style {
     static var bgColor = UIColor.white
-    static var monthViewLabelColor = UIColor.white
-    static var monthViewButtonRightColor = UIColor.white
-    static var monthViewButotnLeftColor = UIColor.white
-    static var activeCellLabelColor = UIColor.white
-    static var activeCellLabelColorHighlighted = UIColor.black
-    static var weekdaysLabelColor = UIColor.white
+    static var monthViewLabelColor = UIColor.black
+    static var monthViewButtonRightColor = UIColor.black
+    static var monthViewButotnLeftColor = UIColor.black
+    static var activeCellLabelColor = UIColor.black
+    static var activeCellLabelColorHighlighted = UIColor.purple
+    static var weekdaysLabelColor = UIColor.black
 }

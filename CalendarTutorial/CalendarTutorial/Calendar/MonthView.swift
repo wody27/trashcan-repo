@@ -16,6 +16,8 @@ extension MonthViewDelegate {
 }
 
 class MonthView: UIView {
+    
+    //MARK: - 변수선언
     var monthsArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     var currentMonthIndex = 0
     var currentYear: Int = 0
@@ -61,17 +63,18 @@ class MonthView: UIView {
                 }
             }
         }
-        labelName.text = "\(currentYear).\(monthsArray[currentMonthIndex])"
+        labelName.text = "\(currentYear).\(monthsArray[currentMonthIndex-1])"
         delegate?.didChangeMonth(monthIndex: currentMonthIndex, year: currentYear)
     }
     
+    //MARK: - private 함수
     private func setupViews() {
         self.addSubview(labelName)
         labelName.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         labelName.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         labelName.widthAnchor.constraint(equalToConstant: 150).isActive = true
         labelName.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-        labelName.text = "\(currentYear).\(monthsArray[currentMonthIndex])"
+        labelName.text = "\(currentYear).\(monthsArray[currentMonthIndex-1])"
         self.addSubview(buttonRight)
         buttonRight.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         buttonRight.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
@@ -82,20 +85,24 @@ class MonthView: UIView {
         buttonLeft.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         buttonLeft.widthAnchor.constraint(equalToConstant: 50).isActive = true
         buttonLeft.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        print   ("MonthView SubViews Add")
     }
     
+    //MARK: - Init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.clear
         
-        currentMonthIndex = Calendar.current.component(.month, from: Date() - 1)
+        currentMonthIndex = Calendar.current.component(.month, from: Date())
         currentYear = Calendar.current.component(.year, from: Date())
         
+        print("MonthView init")
         setupViews()
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
 }
