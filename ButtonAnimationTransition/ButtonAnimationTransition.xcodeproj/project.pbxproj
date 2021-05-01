@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EF3ACC635A9944C2C0B2049 /* Pods_ButtonAnimationTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF756ECFB98E49716931072A /* Pods_ButtonAnimationTransition.framework */; };
+		D4A9FF6C263DA469004757C3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A9FF6B263DA469004757C3 /* SecondViewController.swift */; };
 		D4BE75A0263D9BCB00E175C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BE759F263D9BCB00E175C9 /* AppDelegate.swift */; };
 		D4BE75A2263D9BCB00E175C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BE75A1263D9BCB00E175C9 /* SceneDelegate.swift */; };
 		D4BE75A4263D9BCB00E175C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BE75A3263D9BCB00E175C9 /* ViewController.swift */; };
@@ -16,6 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84FB5ABA7D38A6C0F0D7C877 /* Pods-ButtonAnimationTransition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ButtonAnimationTransition.release.xcconfig"; path = "Target Support Files/Pods-ButtonAnimationTransition/Pods-ButtonAnimationTransition.release.xcconfig"; sourceTree = "<group>"; };
+		B6A4182AF7D8933E0D387E74 /* Pods-ButtonAnimationTransition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ButtonAnimationTransition.debug.xcconfig"; path = "Target Support Files/Pods-ButtonAnimationTransition/Pods-ButtonAnimationTransition.debug.xcconfig"; sourceTree = "<group>"; };
+		CF756ECFB98E49716931072A /* Pods_ButtonAnimationTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ButtonAnimationTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4A9FF6B263DA469004757C3 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		D4BE759C263D9BCB00E175C9 /* ButtonAnimationTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ButtonAnimationTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BE759F263D9BCB00E175C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4BE75A1263D9BCB00E175C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EF3ACC635A9944C2C0B2049 /* Pods_ButtonAnimationTransition.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2150F31C36F08DF9C1D6F321 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF756ECFB98E49716931072A /* Pods_ButtonAnimationTransition.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		57D6345BC2A6F1BCAE93855F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B6A4182AF7D8933E0D387E74 /* Pods-ButtonAnimationTransition.debug.xcconfig */,
+				84FB5ABA7D38A6C0F0D7C877 /* Pods-ButtonAnimationTransition.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		D4BE7593263D9BCB00E175C9 = {
 			isa = PBXGroup;
 			children = (
 				D4BE759E263D9BCB00E175C9 /* ButtonAnimationTransition */,
 				D4BE759D263D9BCB00E175C9 /* Products */,
+				57D6345BC2A6F1BCAE93855F /* Pods */,
+				2150F31C36F08DF9C1D6F321 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +86,7 @@
 				D4BE75A1263D9BCB00E175C9 /* SceneDelegate.swift */,
 				D4BE75A3263D9BCB00E175C9 /* ViewController.swift */,
 				D4BE75A5263D9BCB00E175C9 /* Main.storyboard */,
+				D4A9FF6B263DA469004757C3 /* SecondViewController.swift */,
 				D4BE75A8263D9BCC00E175C9 /* Assets.xcassets */,
 				D4BE75AA263D9BCC00E175C9 /* LaunchScreen.storyboard */,
 				D4BE75AD263D9BCC00E175C9 /* Info.plist */,
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4BE75B0263D9BCC00E175C9 /* Build configuration list for PBXNativeTarget "ButtonAnimationTransition" */;
 			buildPhases = (
+				714B7D6332FB4BD39FDC4AF1 /* [CP] Check Pods Manifest.lock */,
 				D4BE7598263D9BCB00E175C9 /* Sources */,
 				D4BE7599263D9BCB00E175C9 /* Frameworks */,
 				D4BE759A263D9BCB00E175C9 /* Resources */,
+				C12DFDEE7C4F9EF66B15D6A5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,11 +161,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		714B7D6332FB4BD39FDC4AF1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ButtonAnimationTransition-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C12DFDEE7C4F9EF66B15D6A5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ButtonAnimationTransition/Pods-ButtonAnimationTransition-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ButtonAnimationTransition/Pods-ButtonAnimationTransition-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ButtonAnimationTransition/Pods-ButtonAnimationTransition-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D4BE7598263D9BCB00E175C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4A9FF6C263DA469004757C3 /* SecondViewController.swift in Sources */,
 				D4BE75A4263D9BCB00E175C9 /* ViewController.swift in Sources */,
 				D4BE75A0263D9BCB00E175C9 /* AppDelegate.swift in Sources */,
 				D4BE75A2263D9BCB00E175C9 /* SceneDelegate.swift in Sources */,
@@ -283,6 +355,7 @@
 		};
 		D4BE75B1263D9BCC00E175C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6A4182AF7D8933E0D387E74 /* Pods-ButtonAnimationTransition.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +375,7 @@
 		};
 		D4BE75B2263D9BCC00E175C9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84FB5ABA7D38A6C0F0D7C877 /* Pods-ButtonAnimationTransition.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
