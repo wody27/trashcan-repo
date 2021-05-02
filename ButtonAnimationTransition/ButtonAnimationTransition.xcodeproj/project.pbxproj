@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1EF3ACC635A9944C2C0B2049 /* Pods_ButtonAnimationTransition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF756ECFB98E49716931072A /* Pods_ButtonAnimationTransition.framework */; };
 		D4A9FF6C263DA469004757C3 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A9FF6B263DA469004757C3 /* SecondViewController.swift */; };
+		D4A9FF6E263E4145004757C3 /* FadeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A9FF6D263E4145004757C3 /* FadeAnimation.swift */; };
 		D4BE75A0263D9BCB00E175C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BE759F263D9BCB00E175C9 /* AppDelegate.swift */; };
 		D4BE75A2263D9BCB00E175C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BE75A1263D9BCB00E175C9 /* SceneDelegate.swift */; };
 		D4BE75A4263D9BCB00E175C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BE75A3263D9BCB00E175C9 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 		B6A4182AF7D8933E0D387E74 /* Pods-ButtonAnimationTransition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ButtonAnimationTransition.debug.xcconfig"; path = "Target Support Files/Pods-ButtonAnimationTransition/Pods-ButtonAnimationTransition.debug.xcconfig"; sourceTree = "<group>"; };
 		CF756ECFB98E49716931072A /* Pods_ButtonAnimationTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ButtonAnimationTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A9FF6B263DA469004757C3 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		D4A9FF6D263E4145004757C3 /* FadeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAnimation.swift; sourceTree = "<group>"; };
 		D4BE759C263D9BCB00E175C9 /* ButtonAnimationTransition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ButtonAnimationTransition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BE759F263D9BCB00E175C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D4BE75A1263D9BCB00E175C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				D4BE75A3263D9BCB00E175C9 /* ViewController.swift */,
 				D4BE75A5263D9BCB00E175C9 /* Main.storyboard */,
 				D4A9FF6B263DA469004757C3 /* SecondViewController.swift */,
+				D4A9FF6D263E4145004757C3 /* FadeAnimation.swift */,
 				D4BE75A8263D9BCC00E175C9 /* Assets.xcassets */,
 				D4BE75AA263D9BCC00E175C9 /* LaunchScreen.storyboard */,
 				D4BE75AD263D9BCC00E175C9 /* Info.plist */,
@@ -212,6 +215,7 @@
 				D4BE75A4263D9BCB00E175C9 /* ViewController.swift in Sources */,
 				D4BE75A0263D9BCB00E175C9 /* AppDelegate.swift in Sources */,
 				D4BE75A2263D9BCB00E175C9 /* SceneDelegate.swift in Sources */,
+				D4A9FF6E263E4145004757C3 /* FadeAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

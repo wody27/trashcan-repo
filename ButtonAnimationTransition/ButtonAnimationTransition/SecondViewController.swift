@@ -8,11 +8,25 @@
 import TransitionButton
 import UIKit
 
-class SecondViewController: CustomTransitionViewController {
+class SecondViewController: UIViewController, UIViewControllerTransitioningDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    override var modalPresentationStyle: UIModalPresentationStyle {
+        get {
+            return .fullScreen
+        }
+        set {}
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.transitioningDelegate = self
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return FadeAnimation(transitionDuration: 0.5, startingAlpha: 0.8)
+    }
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return FadeAnimation(transitionDuration: 0.5, startingAlpha: 0.8)
+    }
 }

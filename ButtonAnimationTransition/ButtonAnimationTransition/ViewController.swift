@@ -23,7 +23,6 @@ class ViewController: UIViewController {
         button.addTarget(self, action: #selector(animateTouchUp(_:)), for: .touchUpInside)
         button.addTarget(self, action: #selector(animateTouchUp(_:)), for: .touchUpOutside)
         
-//        button.addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
     }
     
     @objc func buttonAction(_ button: TransitionButton) {
@@ -52,8 +51,15 @@ class ViewController: UIViewController {
     @objc func animateTouchUp(_ viewToAnimate: UIView) {
         UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 2, options: .curveEaseIn) {
             viewToAnimate.transform = CGAffineTransform(scaleX: 1, y: 1)
+            DispatchQueue.main.async {
+                
+                let secondVC = self.storyboard?.instantiateViewController(identifier: "SecondViewController") as! SecondViewController
+                secondVC.modalPresentationStyle = .custom
+                self.present(secondVC, animated: true, completion: nil)
+            }
         }
     }
+    
     
     fileprivate func animateView(_ viewToAnimate: UIView) {
         UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 0.5, options: .curveEaseIn) {
