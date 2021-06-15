@@ -23,11 +23,11 @@ class ViewController: UIViewController {
         self.title = "Calendar"
         self.navigationController?.navigationBar.isTranslucent = false
         self.view.backgroundColor = Style.bgColor
-        self.view.addSubview(calendarView)
-        calendarView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
-        calendarView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12).isActive = true
-        calendarView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive = true
-        calendarView.heightAnchor.constraint(equalToConstant: 400).isActive = true
+//        self.view.addSubview(calendarView)
+//        calendarView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+//        calendarView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -12).isActive = true
+//        calendarView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive = true
+//        calendarView.heightAnchor.constraint(equalToConstant: 400).isActive = true
         
     }
 }
