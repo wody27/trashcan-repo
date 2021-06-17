@@ -6,14 +6,43 @@
 //
 
 import UIKit
+import CVCalendar
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var menuView: CVCalendarMenuView!
+    
+    @IBOutlet weak var calendarView: CVCalendarView!
+    
+    private var randomNumberOfDotMarkersForDay = [Int]()
+    private var shouldShowDaysOut = true
+    private var animationFinished = true
+    private var selectedDay: DayView!
+    private var currentCalendar: Calendar?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        menuView.delegate = self
+        calendarView.delegate = self
+        
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        menuView.commitMenuViewUpdate()
+        calendarView.commitCalendarViewUpdate()
+    }
 
 }
 
+extension ViewController: CVCalendarViewDelegate, CVCalendarMenuViewDelegate {
+    
+    // MARK: Required methods
+    
+    func presentationMode() -> CalendarMode { return .monthView }
+    
+    func firstWeekday() -> Weekday { return .sunday }
+    
+}
