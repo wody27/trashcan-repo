@@ -98,20 +98,20 @@ extension ViewController: UICollectionViewDelegate {
         let dampingRatio: CGFloat = 0.8
         let initialVelocity = CGVector.zero
         let springParameters = UISpringTimingParameters(dampingRatio: dampingRatio, initialVelocity: initialVelocity)
-        let animator = UIViewPropertyAnimator(duration: 0.5, timingParameters: springParameters)
+        let animator = UIViewPropertyAnimator(duration: 0.8, timingParameters: springParameters)
 
         self.view.isUserInteractionEnabled = false
         
         if let selectedCell = expandedCell {
             // not expanded
             isStatusBarHidden = false
-            topConstraint.constant = UIApplication.shared.statusBarFrame.height
+            topConstraint.constant = 44
             
             animator.addAnimations {
                 selectedCell.collapse()
                 
                 for cell in self.hiddenCells {
-//                    cell.show()
+                    cell.show()
                 }
             }
             
@@ -125,26 +125,30 @@ extension ViewController: UICollectionViewDelegate {
             isStatusBarHidden = true
             topConstraint.constant = 0
             
-            UIView.animate(withDuration: 0.5) {
-                self.view.layoutIfNeeded()
-            }
             collectionView.isScrollEnabled = false
             
             let selectedCell = collectionView.cellForItem(at: indexPath) as! ExpandableCell
+            let frameOfSelectedCell = selectedCell.frame
+            
             expandedCell = selectedCell
+            hiddenCells = collectionView.visibleCells.map {
+                $0 as! ExpandableCell
+            }.filter {
+                $0 != selectedCell
+            }
             
             animator.addAnimations {
                 selectedCell.expand(in: collectionView)
-                self.view.layoutIfNeeded()
                 
                 for cell in self.hiddenCells {
-//                    cell.hide(in: collectionView, frameOfSelectedCell: frameOfSelectedCell)
+                    cell.hide(in: collectionView, frameOfSelectedCell: frameOfSelectedCell)
                 }
             }
         }
         
         animator.addAnimations {
             self.setNeedsStatusBarAppearanceUpdate()
+            self.view.layoutIfNeeded()
         }
         
         animator.addCompletion { _ in

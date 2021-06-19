@@ -13,9 +13,9 @@ struct BannerViewConfiguration {
    
 }
 
+class BannerView: UIView, UIScrollViewDelegate{
 
-class BannerView: UIView , UIScrollViewDelegate{
-    
+    let randomColors:[UIColor] = [.black,.purple,.yellow,.red]
     private let scrollView:UIScrollView = {
         let sc = UIScrollView(frame: .zero)
         sc.translatesAutoresizingMaskIntoConstraints = false
@@ -23,36 +23,53 @@ class BannerView: UIView , UIScrollViewDelegate{
         return sc
     }()
     
-    private var itemAtIndex:((_ bannerView:BannerView , _ index:Int)->(UIView))!
-    private var numberOfItems:Int = 0
+    private var itemAtIndex: ((_ bannerView:BannerView , _ index:Int)->(UIView))!
+    private var numberOfItems: Int = 0
    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUpUI()
+        
+        setAllConfiguration()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func reloadData(configuration:BannerViewConfiguration? , numberOfItems:Int , itemAtIndex:@escaping ((_ bannerView:BannerView , _ index:Int)->(UIView)) ) {
-       self.itemAtIndex = itemAtIndex
-        self.numberOfItems = numberOfItems
-       reloadScrollView()
+    private func setAllConfiguration() {
+        setUpUI()
+    }
+    
+    private func setUpUI() {
+        scrollView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+        scrollView.delegate = self
+        self.addSubview(scrollView)
+        scrollView.showsHorizontalScrollIndicator = false
+    }
+    
+    func reloadData(configuration:BannerViewConfiguration?, numberOfItems: Int, itemAtIndex: @escaping ((_ bannerView:BannerView , _ index:Int)->(UIView)) ) {
+        self.itemAtIndex = itemAtIndex
+        self.numberOfItems =  numberOfItems
+        reloadScrollView()
     }
     
     private func reloadScrollView() {
+        
         guard self.numberOfItems > 0 else { return }
+        // item이 하나일 때
         if self.numberOfItems == 1 {
-            let firstItem:UIView = self.itemAtIndex(self , 0)
+            let firstItem: UIView = self.itemAtIndex(self , 0)
             addViewToIndex(view: firstItem, index: 0)
             scrollView.isScrollEnabled = false
             return
         }
+        // item이 두개 이상일때
         let firstItem:UIView = self.itemAtIndex(self , 0)
         addViewToIndex(view: firstItem, index: numberOfItems+1)
         
+        
         let lastItem:UIView = self.itemAtIndex(self , numberOfItems-1)
+        
         addViewToIndex(view: lastItem, index: 0)
         for index in 0..<self.numberOfItems {
             let item:UIView = self.itemAtIndex(self , index)
@@ -65,23 +82,26 @@ class BannerView: UIView , UIScrollViewDelegate{
     private func addViewToIndex(view:UIView, index:Int) {
         view.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(view)
-        view.frame = CGRect(x: CGFloat(index)*scrollView.frame.size.width, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height)
+        view.backgroundColor = randomColors[Int.random(in: 0..<4)]
+        view.frame = CGRect(
+            x: CGFloat(index)*scrollView.frame.size.width,
+            y: 0,
+            width: scrollView.frame.size.width,
+            height: scrollView.frame.size.height)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let currentPage:Int = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
+        
         if currentPage == 0 {
-            self.scrollView.contentOffset = CGPoint(x: scrollView.frame.size.width * CGFloat(numberOfItems), y: scrollView.contentOffset.y)
+            self.scrollView.contentOffset =
+                CGPoint(x: scrollView.frame.size.width * CGFloat(numberOfItems),
+                        y: scrollView.contentOffset.y)
         }
         else if currentPage == numberOfItems {
-            self.scrollView.contentOffset = CGPoint(x: 0, y: scrollView.contentOffset.y)
+            self.scrollView.contentOffset =
+                CGPoint(x: 0, y: scrollView.contentOffset.y)
         }
     }
   
-    private func setUpUI() {
-        scrollView.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
-        scrollView.delegate = self
-        self.addSubview(scrollView)
-        scrollView.showsHorizontalScrollIndicator = false
-    }
 }

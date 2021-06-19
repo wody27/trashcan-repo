@@ -37,13 +37,34 @@ class ExpandableCell: UICollectionViewCell, Expandable {
         initialFrame = self.frame
         
         let currentY = self.frame.origin.y
+        let newY: CGFloat
         
+        if currentY < frameOfSelectedCell.origin.y {
+            let offset = frameOfSelectedCell.origin.y - currentY
+            newY = collectionView.contentOffset.y - offset
+        } else {
+            let offset = currentY - frameOfSelectedCell.maxY
+            newY = collectionView.contentOffset.y + collectionView.frame.height + offset + offset + offset
+        }
+        
+        self.frame.origin.y = newY
+        
+        layoutIfNeeded()
     }
+    
+    func show() {
+        self.frame = initialFrame ?? self.frame
+        
+        initialFrame = nil
+        
+        layoutIfNeeded()
+    }
+    
     func expand(in collectionView: UICollectionView) {
         initialFrame = self.frame
         initialCornerRadius = self.contentView.layer.cornerRadius
         
-        print(UIApplication.shared.statusBarFrame.size.height )
+        
         self.contentView.layer.cornerRadius = 0
         self.frame = CGRect(x: 0, y: collectionView.contentOffset.y, width: collectionView.frame.size.width, height: collectionView.frame.size.height)
         layoutIfNeeded()
