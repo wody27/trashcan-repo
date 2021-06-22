@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol MonthViewDelegate: class {
+protocol MonthViewDelegate: AnyObject {
     func didChangeMonth(monthIndex: Int, year: Int)
 }
 
@@ -36,7 +36,8 @@ class MonthView: UIView {
     let buttonRight: UIButton = {
         let button = UIButton()
         button.setTitle(">", for: .normal)
-        button.setTitleColor(Style.monthViewButtonRightColor, for: .normal)
+        button.setTitleColor(Style.monthViewButotnLeftColor, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(buttonLeftRightAction(sender:)), for: .touchUpInside)
         return button
     }()
@@ -45,6 +46,7 @@ class MonthView: UIView {
         let button = UIButton()
         button.setTitle("<", for: .normal)
         button.setTitleColor(Style.monthViewButtonRightColor, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(buttonLeftRightAction(sender:)), for: .touchUpInside)
         return button
     }()
@@ -63,6 +65,7 @@ class MonthView: UIView {
                 }
             }
         }
+        print("HELLO")
         labelName.text = "\(currentYear).\(monthsArray[currentMonthIndex-1])"
         delegate?.didChangeMonth(monthIndex: currentMonthIndex, year: currentYear)
     }
@@ -80,12 +83,13 @@ class MonthView: UIView {
         buttonRight.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
         buttonRight.widthAnchor.constraint(equalToConstant: 50).isActive = true
         buttonRight.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        print(buttonRight.frame)
         self.addSubview(buttonLeft)
         buttonLeft.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         buttonLeft.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         buttonLeft.widthAnchor.constraint(equalToConstant: 50).isActive = true
         buttonLeft.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
-        print   ("MonthView SubViews Add")
+        print("MonthView SubViews Add")
     }
     
     //MARK: - Init

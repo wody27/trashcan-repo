@@ -39,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D415DD2A267DCDCF007B7113 /* BannerView */ = {
+			isa = PBXGroup;
+			children = (
+				D4AAE0F82678B2390085F900 /* BannerView.swift */,
+			);
+			path = BannerView;
+			sourceTree = "<group>";
+		};
 		D4AAE0D82678B2280085F900 = {
 			isa = PBXGroup;
 			children = (
@@ -60,8 +68,8 @@
 			children = (
 				D4AAE0E42678B2280085F900 /* AppDelegate.swift */,
 				D4AAE0E62678B2280085F900 /* SceneDelegate.swift */,
+				D415DD2A267DCDCF007B7113 /* BannerView */,
 				D4AAE0E82678B2280085F900 /* ViewController.swift */,
-				D4AAE0F82678B2390085F900 /* BannerView.swift */,
 				D4AAE0EA2678B2280085F900 /* Main.storyboard */,
 				D4AAE0ED2678B2290085F900 /* Assets.xcassets */,
 				D4AAE0EF2678B2290085F900 /* LaunchScreen.storyboard */,

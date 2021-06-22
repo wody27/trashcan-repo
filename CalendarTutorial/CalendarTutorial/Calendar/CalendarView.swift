@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CalendarView: UIView {
+class CalendarView: UIView, MonthViewDelegate {
     var numOfDaysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31]
     var currentMonthIndex: Int = 0 // 오늘 달의 index
     var currentYear: Int = 0 // 오늘 년도
@@ -33,6 +33,7 @@ class CalendarView: UIView {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         let cv = UICollectionView(frame: CGRect.zero ,collectionViewLayout: layout)
         cv.showsHorizontalScrollIndicator = false
+        
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.backgroundColor = .clear
         cv.allowsMultipleSelection = false
@@ -63,6 +64,27 @@ class CalendarView: UIView {
         return day
     }
     
+    func didChangeMonth(monthIndex: Int, year: Int) {
+        currentMonthIndex=monthIndex+1
+        currentYear = year
+        
+        //for leap year, make february month of 29 days
+        if monthIndex == 1 {
+            if currentYear % 4 == 0 {
+                numOfDaysInMonth[monthIndex] = 29
+            } else {
+                numOfDaysInMonth[monthIndex] = 28
+            }
+        }
+        //end
+        
+        firstWeekDayOfMonth=getFirstWeekDay()
+        
+        collectionView.reloadData()
+        print("HI")
+//        monthView.buttonLeft.isEnabled = !(currentMonthIndex == presentMonthIndex && currentYear == presentYear)
+    }
+    
     private func initializeView() {
         currentMonthIndex = Calendar.current.component(.month, from: Date())
         currentYear = Calendar.current.component(.year, from: Date())
@@ -77,7 +99,7 @@ class CalendarView: UIView {
         
         
         setupViews()
-        
+        monthView.delegate = self
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(DateCVC.self, forCellWithReuseIdentifier: "Cell")
@@ -177,10 +199,24 @@ class DateCVC: UICollectionViewCell {
 
 extension Date {
     var weekday: Int {
-        return Calendar.current.component(.weekday, from: self)
+        get {
+            Calendar.current.component(.weekday, from: self)
+        }
     }
+    var month: Int {
+        get {
+            Calendar.current.component(.month, from: self)
+        }
+    }
+//    var firstDay: Date {
+//        get {
+//
+//        }
+//    }
     var firstDayOfTheMonth: Date {
-        return Calendar.current.date(from: Calendar.current.dateComponents([.year,.month], from: self))!
+        get {
+            Calendar.current.date(from: Calendar.current.dateComponents([.year,.month], from: self))!
+        }
     }
 }
 
