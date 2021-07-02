@@ -66,7 +66,7 @@ class ViewController: UIViewController {
         expandAnimation.fillMode = .forwards
         expandAnimation.isRemovedOnCompletion = false
 
-        
+
         CATransaction.setCompletionBlock {
             completion?()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {

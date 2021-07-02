@@ -24,40 +24,18 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     private func setUpScrollView() {
-        view.addSubview(contentCalendarView)
-        contentCalendarView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        contentCalendarView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        contentCalendarView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        contentCalendarView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        view.addSubview(calendarView)
+        calendarView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        calendarView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        calendarView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        calendarView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
     }
     
-
- 
-    let contentCalendarView: ContentMonthView = {
-        let content = ContentMonthView()
-        content.translatesAutoresizingMaskIntoConstraints = false
-        return content
+    let calendarView: CalendarView = {
+        let calendar = CalendarView()
+        calendar.translatesAutoresizingMaskIntoConstraints = false
+        return calendar
     }()
-    
-    // MARK: - Computed Property
 
-    var currentYear: Int {
-        get {
-            Calendar.current.component(.year, from: Date())
-        }
-    }
-    
-    var currentMonth: Int {
-        get {
-            Calendar.current.component(.month, from: Date())
-        }
-    }
-    
-    var currentDate: Int {
-        get {
-            Calendar.current.component(.day, from: Date())
-        }
-    }
-    
 }
 

@@ -47,11 +47,16 @@ class CalendarView: UIView, MonthViewDelegate {
     
     var previousMonth: Int = 0
     var previousYear: Int = 0
+    
     var presentedMonth: Int = 0
     var presentedYear: Int = 0
+    
     var followingMonth: Int = 0
     var followingYear: Int = 0
+    
+    var firstWeekdayOfPreviousMonth: Int = 0
     var firstWeekdayOfPresentedMonth: Int = 0
+    var firstWeekayOfFollowingMonth: Int = 0
     var numOfDaysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31]
     
     // MARK: - Life Cycle
@@ -111,21 +116,19 @@ class CalendarView: UIView, MonthViewDelegate {
         if presentedMonth == 2 && presentedMonth % 4 == 0 {
             numOfDaysInMonth[presentedMonth-1] = 29
         }
-        
-        UIView.animate(withDuration: 0.1) {
-            self.calendarCollectionView.reloadData()
-            self.calendarCollectionView.layoutIfNeeded()
-        }
-        
-        
+        self.middleCalendarCollectionView.reloadData()
+//        UIView.animate(withDuration: 0.1) {
+//            self.calendarCollectionView.reloadData()
+//            self.calendarCollectionView.layoutIfNeeded()
+//        }
 //        UIView.transition(with: calendarCollectionView,
 //                          duration: 0.35,
 //                          options: .transitionCrossDissolve,
 //                          animations: { self.calendarCollectionView.reloadData() })
-        
     }
     
     private func setUpViews() {
+
         addSubview(monthView)
         monthView.topAnchor.constraint(equalTo: topAnchor, constant: 100).isActive = true
         monthView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
@@ -137,12 +140,26 @@ class CalendarView: UIView, MonthViewDelegate {
         weekdayView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
         weekdayView.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
         weekdayView.heightAnchor.constraint(equalToConstant: 11).isActive = true
+
+        addSubview(contentScrollView)
+        contentScrollView.topAnchor.constraint(equalTo: weekdayView.bottomAnchor, constant: 12).isActive = true
+        contentScrollView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
+        contentScrollView.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
+        contentScrollView.heightAnchor.constraint(equalToConstant: 264).isActive = true
         
-        addSubview(calendarCollectionView)
-        calendarCollectionView.topAnchor.constraint(equalTo: weekdayView.bottomAnchor, constant: 12).isActive = true
-        calendarCollectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        calendarCollectionView.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
-        calendarCollectionView.heightAnchor.constraint(equalToConstant: 264).isActive = true
+        let width = frame.width * 3
+        contentScrollView.contentSize = CGSize(width: width, height: frame.height)
+        contentScrollView.backgroundColor = .black
+        
+        for i in 0..<3 {
+            
+            
+        }
+//        addSubview(calendarCollectionView)
+//        calendarCollectionView.topAnchor.constraint(equalTo: weekdayView.bottomAnchor, constant: 12).isActive = true
+//        calendarCollectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
+//        calendarCollectionView.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
+//        calendarCollectionView.heightAnchor.constraint(equalToConstant: 264).isActive = true
         
     }
     
@@ -177,8 +194,9 @@ class CalendarView: UIView, MonthViewDelegate {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-  
-    lazy var calendarCollectionView: UICollectionView = {
+    
+    
+    lazy var previousCalendarCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
@@ -195,6 +213,47 @@ class CalendarView: UIView, MonthViewDelegate {
         return collectionView
     }()
     
+    lazy var presentedCalendarCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.allowsMultipleSelection = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(DateCVCell.self, forCellWithReuseIdentifier: "DateCVCell")
+        collectionView.collectionViewLayout.invalidateLayout()
+        return collectionView
+    }()
+    
+    lazy var followingCalendarCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.allowsMultipleSelection = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(DateCVCell.self, forCellWithReuseIdentifier: "DateCVCell")
+        collectionView.collectionViewLayout.invalidateLayout()
+        return collectionView
+    }()
+    
+    
+    let contentScrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.isPagingEnabled = true
+        return scrollView
+    }()
     
     required init?(coder: NSCoder) {
         fatalError("DO Not Use on Storyboard")
