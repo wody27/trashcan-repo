@@ -31,8 +31,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         calendarView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
     }
     
-    let calendarView: CalendarView = {
-        let calendar = CalendarView()
+    lazy var calendarView: CalendarView = {
+        let calendar = CalendarView(frame: self.view.frame)
         calendar.translatesAutoresizingMaskIntoConstraints = false
         return calendar
     }()
