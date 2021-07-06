@@ -7,14 +7,18 @@
 
 import UIKit
 
-class CalendarView: UIView, MonthViewDelegate {
+struct MyDateExpression {
+    var year: Int
+    var month: Int
+}
 
-    func didChangeMonth(month: Int, year: Int) {
-        presentedMonth = month
-        presentedYear = year
-//        updateCalendarView()
-    }
-    
+enum CalendarScrollDirection {
+    case left
+    case right
+    case none
+}
+class CalendarView: UIView {
+
     // MARK: - Computed Property
 
     var currentYear: Int {
@@ -58,6 +62,8 @@ class CalendarView: UIView, MonthViewDelegate {
     var firstWeekdayOfPresentedMonth: Int = 0
     var firstWeekdayOfFollowingMonth: Int = 0
     var numOfDaysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31]
+    
+    var scrollDirection: CalendarScrollDirection = .none
     
     // MARK: - Life Cycle
 
@@ -105,38 +111,50 @@ class CalendarView: UIView, MonthViewDelegate {
         
         presentedMonth = currentMonth
         presentedYear = currentYear
-        previousYear = getPreviousMonth(year: presentedYear, month: presentedMonth)[0]
-        previousMonth = getPreviousMonth(year: presentedYear, month: presentedMonth)[1]
-        followingYear = getFollowingMonth(year: presentedYear, month: presentedMonth)[0]
-        followingMonth = getFollowingMonth(year: presentedYear, month: presentedMonth)[1]
+        previousYear = getPreviousMonth(year: presentedYear, month: presentedMonth).year
+        previousMonth = getPreviousMonth(year: presentedYear, month: presentedMonth).month
+        followingYear = getFollowingMonth(year: presentedYear, month: presentedMonth).year
+        followingMonth = getFollowingMonth(year: presentedYear, month: presentedMonth).month
+        monthView.updateYearAndMonth(to: MyDateExpression(year: presentedYear, month: presentedMonth))
     }
-//
-//    private func updateCalendarView() {
-//        firstWeekdayOfPresentedMonth = getPresentedFirstWeekday()
-//        if presentedMonth == 2 && presentedMonth % 4 == 0 {
-//            numOfDaysInMonth[presentedMonth-1] = 29
-//        }
-//        self.presentedCalendarCollectionView.reloadData()
-//        /*
-//         UIView.animate(withDuration: 0.1) {
-//         self.calendarCollectionView.reloadData()
-//         self.calendarCollectionView.layoutIfNeeded()
-//         }
-//         UIView.transition(with: calendarCollectionView,
-//         duration: 0.35,
-//         options: .transitionCrossDissolve,
-//         animations: { self.calendarCollectionView.reloadData() })
-//         */
-//    }
-//
-    private func setUpViews() {
 
+    private func updateCalendarView(middle date: MyDateExpression) {
+        
+        // 윤년 계산
+        if date.month == 2 && date.year % 4 == 0 {
+            numOfDaysInMonth[date.month-1] = 29
+        }
+        
+        monthView.updateYearAndMonth(to: date)
+        
+        self.presentedYear = date.year
+        self.presentedMonth = date.month
+        
+        self.previousYear = self.getPreviousMonth(year: self.presentedYear, month: self.presentedMonth).year
+        self.previousMonth = self.getPreviousMonth(year: self.presentedYear, month: self.presentedMonth).month
+        
+        self.followingYear = self.getFollowingMonth(year: self.presentedYear, month: self.presentedMonth).year
+        self.followingMonth = self.getFollowingMonth(year: self.presentedYear, month: self.presentedMonth).month
+        
+        self.firstWeekdayOfPreviousMonth = self.getPreviousFirstWeekday()
+        self.firstWeekdayOfPresentedMonth = self.getPresentedFirstWeekday()
+        self.firstWeekdayOfFollowingMonth = self.getFollowingFirstWeekday()
+        
+        self.previousCalendarCollectionView.reloadData()
+        self.presentedCalendarCollectionView.reloadData()
+        self.followingCalendarCollectionView.reloadData()
+        
+        let xPosition1 = self.frame.width * CGFloat(1)
+        contentScrollView.setContentOffset(CGPoint(x: xPosition1, y: 0), animated: false)
+    }
+    
+    private func setUpViews() {
         addSubview(monthView)
         monthView.topAnchor.constraint(equalTo: topAnchor, constant: 100).isActive = true
         monthView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         monthView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         monthView.heightAnchor.constraint(equalToConstant: 24).isActive = true
-
+        
         addSubview(weekdayView)
         weekdayView.topAnchor.constraint(equalTo: monthView.bottomAnchor, constant: 16).isActive = true
         weekdayView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
@@ -150,11 +168,9 @@ class CalendarView: UIView, MonthViewDelegate {
         contentScrollView.heightAnchor.constraint(equalToConstant: 300).isActive = true
         
         let screenSize = UIScreen.main.bounds
-        
         contentScrollView.contentSize = CGSize(width: screenSize.width * 3, height: 300)
-        print(self.frame.width)
-        print(screenSize.width)
-        let width = screenSize.width - 32.0
+        
+        let width = screenSize.width
         let xPosition = self.frame.width * CGFloat(0)
         previousCalendarCollectionView.frame = CGRect(x: xPosition, y: 0, width: width, height: 300)
         contentScrollView.contentSize.width = self.frame.width * 1
@@ -170,11 +186,7 @@ class CalendarView: UIView, MonthViewDelegate {
         contentScrollView.contentSize.width = self.frame.width * 3
         contentScrollView.addSubview(followingCalendarCollectionView)
         
-//        addSubview(calendarCollectionView)
-//        calendarCollectionView.topAnchor.constraint(equalTo: weekdayView.bottomAnchor, constant: 12).isActive = true
-//        calendarCollectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-//        calendarCollectionView.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
-//        calendarCollectionView.heightAnchor.constraint(equalToConstant: 264).isActive = true
+        contentScrollView.setContentOffset(CGPoint(x: xPosition1, y: 0), animated: false)
         
     }
     
@@ -182,6 +194,11 @@ class CalendarView: UIView, MonthViewDelegate {
         firstWeekdayOfPreviousMonth = getPreviousFirstWeekday()
         firstWeekdayOfPresentedMonth = getCurrentFirstWeekday()
         firstWeekdayOfFollowingMonth = getFollowingFirstWeekday()
+        print("시작할 때 첫 시작 주소")
+        print(self.firstWeekdayOfPreviousMonth)
+        print(self.firstWeekdayOfPresentedMonth)
+        print(self.firstWeekdayOfFollowingMonth)
+        
     }
     
     // 첫번째 날짜 구하기
@@ -191,23 +208,21 @@ class CalendarView: UIView, MonthViewDelegate {
     }
     
     private func getPreviousFirstWeekday() -> Int {
-        let py = getPreviousMonth(year: presentedYear, month: presentedMonth)[0]
-        let pm = getPreviousMonth(year: presentedYear, month: presentedMonth)[1]
-        
+        let py = getPreviousMonth(year: presentedYear, month: presentedMonth).year
+        let pm = getPreviousMonth(year: presentedYear, month: presentedMonth).month
         let day = ("\(py)-\(pm)-01".date?.firstDayOfTheMonth.weekday)!
-        print(day)
         return day
     }
     
     private func getFollowingFirstWeekday() -> Int {
-        let fy = getFollowingMonth(year: presentedYear, month: presentedMonth)[0]
-        let fm = getFollowingMonth(year: presentedYear, month: presentedMonth)[1]
+        let fy = getFollowingMonth(year: presentedYear, month: presentedMonth).year
+        let fm = getFollowingMonth(year: presentedYear, month: presentedMonth).month
         
         let day = ("\(fy)-\(fm)-01".date?.firstDayOfTheMonth.weekday)!
-        print(day)
         return day
 
     }
+    
     private func getPresentedFirstWeekday() -> Int {
         let day = ("\(presentedYear)-\(presentedMonth)-01".date?.firstDayOfTheMonth.weekday)!
         return day
@@ -219,7 +234,7 @@ class CalendarView: UIView, MonthViewDelegate {
         return day
     }
     
-    private func getPreviousMonth(year: Int, month: Int) -> [Int] {
+    private func getPreviousMonth(year: Int, month: Int) -> MyDateExpression {
         var pm: Int = 0
         var py: Int = 0
         
@@ -231,10 +246,10 @@ class CalendarView: UIView, MonthViewDelegate {
             py = year
         }
         
-        return [py, pm]
+        return MyDateExpression(year: py, month: pm)
     }
     
-    private func getFollowingMonth(year: Int, month: Int) -> [Int] {
+    private func getFollowingMonth(year: Int, month: Int) -> MyDateExpression {
         var fm: Int = 0
         var fy: Int = 0
         
@@ -246,14 +261,13 @@ class CalendarView: UIView, MonthViewDelegate {
             fy = year
         }
         
-        return [fy, fm]
+        return MyDateExpression(year: fy, month: fm)
     }
     
     
     // MARK: - Views
     lazy var monthView: MonthView = {
         let view = MonthView()
-        view.delegate = self
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -267,7 +281,7 @@ class CalendarView: UIView, MonthViewDelegate {
     
     lazy var previousCalendarCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
@@ -285,7 +299,7 @@ class CalendarView: UIView, MonthViewDelegate {
     
     lazy var presentedCalendarCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
@@ -303,7 +317,7 @@ class CalendarView: UIView, MonthViewDelegate {
     
     lazy var followingCalendarCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         
         let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .white
@@ -320,19 +334,76 @@ class CalendarView: UIView, MonthViewDelegate {
     }()
     
     
-    let contentScrollView: UIScrollView = {
+    lazy var contentScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.isPagingEnabled = true
-        scrollView.showsHorizontalScrollIndicator = true
-        
-        scrollView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.delegate = self
+//        scrollView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         return scrollView
     }()
     
     required init?(coder: NSCoder) {
         fatalError("DO Not Use on Storyboard")
     }
+}
+
+extension CalendarView: UIScrollViewDelegate {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        print("scrollViewWillEndDragging")
+        switch targetContentOffset.pointee.x {
+        case 0:
+            scrollDirection = .left
+            
+        case self.frame.width * CGFloat(1):
+            scrollDirection = .none
+            break
+        case self.frame.width * CGFloat(2):
+            scrollDirection = .right
+            
+        default:
+            break
+        }
+        
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        switch scrollDirection {
+        case .left:
+            let py = getPreviousMonth(year: presentedYear, month: presentedMonth).year
+            let pm = getPreviousMonth(year: presentedYear, month: presentedMonth).month
+            updateCalendarView(middle: MyDateExpression(year: py, month: pm))
+        case .none:
+            break
+        case .right:
+            let fy = getFollowingMonth(year: presentedYear, month: presentedMonth).year
+            let fm = getFollowingMonth(year: presentedYear, month: presentedMonth).month
+            updateCalendarView(middle: MyDateExpression(year: fy, month: fm))
+        }
+    }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        if scrollView == contentScrollView {
+            
+            
+            // 여기서 업데이트 해야한다.
+        }
+    }
+    
+    
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+
+    }
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        if scrollView == contentScrollView {
+//            print("scrollViewDidScroll")
+//            print(scrollView.contentOffset)
+//        }
+//    }
+    
 }
 
 extension CalendarView: UICollectionViewDataSource {
@@ -343,21 +414,18 @@ extension CalendarView: UICollectionViewDataSource {
             let minimumCellNumber = numOfDaysInMonth[previousMonth-1] + firstWeekdayOfPreviousMonth - 1
             // 7의 배수여야 하므로
             let dateNumber = minimumCellNumber % 7 == 0 ? minimumCellNumber : minimumCellNumber + (7 - (minimumCellNumber%7))
-            print(dateNumber)
             return dateNumber
         case presentedCalendarCollectionView:
             // 한달 수 + 앞에 이전 달 수
             let minimumCellNumber = numOfDaysInMonth[presentedMonth-1] + firstWeekdayOfPresentedMonth - 1
             // 7의 배수여야 하므로
             let dateNumber = minimumCellNumber % 7 == 0 ? minimumCellNumber : minimumCellNumber + (7 - (minimumCellNumber%7))
-            print(dateNumber)
             return dateNumber
         case followingCalendarCollectionView:
             // 한달 수 + 앞에 이전 달 수
             let minimumCellNumber = numOfDaysInMonth[followingMonth-1] + firstWeekdayOfFollowingMonth - 1
             // 7의 배수여야 하므로
             let dateNumber = minimumCellNumber % 7 == 0 ? minimumCellNumber : minimumCellNumber + (7 - (minimumCellNumber%7))
-            print(dateNumber)
             return dateNumber
         default:
             return 0

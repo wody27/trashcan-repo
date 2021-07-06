@@ -7,11 +7,6 @@
 
 import UIKit
 
-@objc
-protocol MonthViewDelegate {
-    @objc func didChangeMonth(month: Int, year: Int)
-}
-
 class MonthView: UIView {
     
     override init(frame: CGRect) {
@@ -23,7 +18,6 @@ class MonthView: UIView {
     }
     
     @objc private func btnLeftRightAction(sender: UIButton) {
-        print("HELLO")
         var nextMonth: Int  = 0
         var nextYear: Int   = 0
         if sender == btnLeft {
@@ -46,7 +40,7 @@ class MonthView: UIView {
         presentedMonth = nextMonth
         presentedYear = nextYear
         yearAndMonth = "\(nextYear).\(nextMonth)"
-        delegate?.didChangeMonth(month: nextMonth, year: nextYear)
+//        delegate?.didChangeMonth(month: nextMonth, year: nextYear)
     }
     
     private func configureAll() {
@@ -73,6 +67,12 @@ class MonthView: UIView {
         btnRight.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
+    func updateYearAndMonth(to date: MyDateExpression) {
+        let year = date.year
+        let month = date.month
+        yearAndMonth = "\(year).\(month)"
+    }
+    
     // MARK: - Property
     var yearAndMonth: String = "0000.00" {
         didSet {
@@ -85,8 +85,6 @@ class MonthView: UIView {
             monthLabel.text = yearAndMonth
         }
     }
-    
-    var delegate: MonthViewDelegate?
     
     var presentedMonth: Int = 0
     var presentedYear: Int  = 0
