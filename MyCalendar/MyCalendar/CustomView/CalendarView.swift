@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Differ
 
 struct MyDateExpression {
     var year: Int
@@ -17,6 +18,12 @@ enum CalendarScrollDirection {
     case right
     case none
 }
+
+enum CalendarShape {
+    case week
+    case month
+}
+
 class CalendarView: UIView {
 
     // MARK: - Computed Property
@@ -64,6 +71,7 @@ class CalendarView: UIView {
     var numOfDaysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31]
     
     var scrollDirection: CalendarScrollDirection = .none
+    var calendarShapeMode: CalendarShape = .month
     
     // MARK: - Life Cycle
 
@@ -148,6 +156,32 @@ class CalendarView: UIView {
         contentScrollView.setContentOffset(CGPoint(x: xPosition1, y: 0), animated: false)
     }
     
+    func changeCalendarMode() {
+        
+        if calendarShapeMode == .month {
+            calendarShapeMode = .week
+            contentScrollView.isScrollEnabled = false
+        } else {
+            calendarShapeMode = .month
+            contentScrollView.isScrollEnabled = true
+        }
+        presentedCalendarCollectionView.performBatchUpdates {
+            self.presentedCalendarCollectionView.reloadSections(IndexSet(integer: 0))
+        } completion: { _ in
+
+        }
+
+        
+//        presentedCalendarCollectionView.performBatchUpdates {
+//            self.presentedCalendarCollectionView.reloadData()
+//
+//        } completion: { _ in
+//
+//        }
+
+//        presentedCalendarCollectionView.reloadData()
+    }
+    
     private func setUpViews() {
         addSubview(monthView)
         monthView.topAnchor.constraint(equalTo: topAnchor, constant: 100).isActive = true
@@ -194,10 +228,6 @@ class CalendarView: UIView {
         firstWeekdayOfPreviousMonth = getPreviousFirstWeekday()
         firstWeekdayOfPresentedMonth = getCurrentFirstWeekday()
         firstWeekdayOfFollowingMonth = getFollowingFirstWeekday()
-        print("시작할 때 첫 시작 주소")
-        print(self.firstWeekdayOfPreviousMonth)
-        print(self.firstWeekdayOfPresentedMonth)
-        print(self.firstWeekdayOfFollowingMonth)
         
     }
     
@@ -228,7 +258,6 @@ class CalendarView: UIView {
         return day
     }
     
-    // 임시로 만들어둠
     private func getFirstWeekday(by date: Date) -> Int {
         let day = date.firstDayOfTheMonth.weekday
         return day
@@ -260,8 +289,11 @@ class CalendarView: UIView {
             fm = month + 1
             fy = year
         }
-        
         return MyDateExpression(year: fy, month: fm)
+    }
+    
+    private func changeToWeek() {
+        
     }
     
     
@@ -340,7 +372,6 @@ class CalendarView: UIView {
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.delegate = self
-//        scrollView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         return scrollView
     }()
     
@@ -352,7 +383,6 @@ class CalendarView: UIView {
 extension CalendarView: UIScrollViewDelegate {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
-        print("scrollViewWillEndDragging")
         switch targetContentOffset.pointee.x {
         case 0:
             scrollDirection = .left
@@ -387,7 +417,6 @@ extension CalendarView: UIScrollViewDelegate {
         
         if scrollView == contentScrollView {
             
-            
             // 여기서 업데이트 해야한다.
         }
     }
@@ -417,10 +446,16 @@ extension CalendarView: UICollectionViewDataSource {
             return dateNumber
         case presentedCalendarCollectionView:
             // 한달 수 + 앞에 이전 달 수
-            let minimumCellNumber = numOfDaysInMonth[presentedMonth-1] + firstWeekdayOfPresentedMonth - 1
-            // 7의 배수여야 하므로
-            let dateNumber = minimumCellNumber % 7 == 0 ? minimumCellNumber : minimumCellNumber + (7 - (minimumCellNumber%7))
-            return dateNumber
+            switch calendarShapeMode {
+            case .week:
+                return 7
+            case .month:
+                let minimumCellNumber = numOfDaysInMonth[presentedMonth-1] + firstWeekdayOfPresentedMonth - 1
+                // 7의 배수여야 하므로
+                let dateNumber = minimumCellNumber % 7 == 0 ? minimumCellNumber : minimumCellNumber + (7 - (minimumCellNumber%7))
+                return dateNumber
+            }
+            
         case followingCalendarCollectionView:
             // 한달 수 + 앞에 이전 달 수
             let minimumCellNumber = numOfDaysInMonth[followingMonth-1] + firstWeekdayOfFollowingMonth - 1
@@ -458,27 +493,70 @@ extension CalendarView: UICollectionViewDataSource {
             }
             return cell
         case presentedCalendarCollectionView:
-            let startWeekdayOfMonthIndex = firstWeekdayOfPresentedMonth - 1
-            let minimumCellNumber = numOfDaysInMonth[presentedMonth-1] + firstWeekdayOfPresentedMonth - 1
-            
-            if indexPath.item < startWeekdayOfMonthIndex {
-                // 이전 달의 부분
-                // 색깔 회색 처리
-                let previousMonth = presentedMonth < 2 ? 12 : presentedMonth - 1
-                let previousMonthDate = numOfDaysInMonth[previousMonth-1]
-                let date = previousMonthDate - (startWeekdayOfMonthIndex-1) + indexPath.row
-                cell.configureDate(to: date)
-                cell.isPreviousMonthDate()
-            } else if indexPath.item >= minimumCellNumber {
-                // 다음 달의 부분
-                let date = indexPath.item - minimumCellNumber + 1
-                cell.configureDate(to: date)
-                cell.isFollowingMonthDate()
-            } else {
-                let date = indexPath.row - startWeekdayOfMonthIndex + 1
-                cell.configureDate(to: date)
+            switch calendarShapeMode {
+            case .week:
+                let startWeekdayOfMonthIndex = firstWeekdayOfPresentedMonth - 1
+                let minimumCellNumber = numOfDaysInMonth[presentedMonth-1] + firstWeekdayOfPresentedMonth - 1
+                let indexOfWeekday = startWeekdayOfMonthIndex + currentDate
+                var startOfWeekThatLocatesToday: Int
+                if indexOfWeekday >= 0 && indexOfWeekday < 7  {
+                    startOfWeekThatLocatesToday = 0
+                } else if indexOfWeekday >= 8 && indexOfWeekday < 14 {
+                    startOfWeekThatLocatesToday = 8
+                } else if indexOfWeekday >= 15 && indexOfWeekday < 21 {
+                    startOfWeekThatLocatesToday = 15
+                } else if indexOfWeekday >= 22 && indexOfWeekday < 28 {
+                    startOfWeekThatLocatesToday = 22
+                } else if indexOfWeekday >= 29 && indexOfWeekday < 35 {
+                    startOfWeekThatLocatesToday = 29
+                } else {
+                    startOfWeekThatLocatesToday = 
+                }
+                print(startWeekdayOfMonthIndex)
+                print(minimumCellNumber)
+                if indexPath.item < startWeekdayOfMonthIndex {
+                    // 이전 달의 부분
+                    // 색깔 회색 처리
+                    let previousMonth = presentedMonth < 2 ? 12 : presentedMonth - 1
+                    let previousMonthDate = numOfDaysInMonth[previousMonth-1]
+                    let date = previousMonthDate - (startWeekdayOfMonthIndex-1) + indexPath.row
+                    cell.configureDate(to: date)
+                    cell.isPreviousMonthDate()
+                } else if indexPath.item >= minimumCellNumber {
+                    // 다음 달의 부분
+                    let date = indexPath.item - minimumCellNumber + 1
+                    cell.configureDate(to: date)
+                    cell.isFollowingMonthDate()
+                } else {
+                    let date = indexPath.row - startWeekdayOfMonthIndex + 1
+                    cell.configureDate(to: date)
+                }
+                return cell
+            case .month:
+                let startWeekdayOfMonthIndex = firstWeekdayOfPresentedMonth - 1
+                let minimumCellNumber = numOfDaysInMonth[presentedMonth-1] + firstWeekdayOfPresentedMonth - 1
+                
+                if indexPath.item < startWeekdayOfMonthIndex {
+                    // 이전 달의 부분
+                    // 색깔 회색 처리
+                    let previousMonth = presentedMonth < 2 ? 12 : presentedMonth - 1
+                    let previousMonthDate = numOfDaysInMonth[previousMonth-1]
+                    let date = previousMonthDate - (startWeekdayOfMonthIndex-1) + indexPath.row
+                    cell.configureDate(to: date)
+                    cell.isPreviousMonthDate()
+                } else if indexPath.item >= minimumCellNumber {
+                    // 다음 달의 부분
+                    let date = indexPath.item - minimumCellNumber + 1
+                    cell.configureDate(to: date)
+                    cell.isFollowingMonthDate()
+                } else {
+                    let date = indexPath.row - startWeekdayOfMonthIndex + 1
+                    cell.configureDate(to: date)
+                }
+                return cell
             }
-            return cell
+            
+            
         case followingCalendarCollectionView:
             let startWeekdayOfMonthIndex = firstWeekdayOfFollowingMonth - 1
             let minimumCellNumber = numOfDaysInMonth[followingMonth-1] + firstWeekdayOfFollowingMonth - 1
