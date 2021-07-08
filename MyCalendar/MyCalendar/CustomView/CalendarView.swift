@@ -157,6 +157,23 @@ class CalendarView: UIView {
     }
     
     func changeCalendarMode() {
+        let date = MyDateExpression(year: currentYear, month: currentMonth)
+        monthView.updateYearAndMonth(to: date)
+        
+        self.presentedYear = date.year
+        self.presentedMonth = date.month
+        
+        self.previousYear = self.getPreviousMonth(year: self.presentedYear, month: self.presentedMonth).year
+        self.previousMonth = self.getPreviousMonth(year: self.presentedYear, month: self.presentedMonth).month
+        
+        self.followingYear = self.getFollowingMonth(year: self.presentedYear, month: self.presentedMonth).year
+        self.followingMonth = self.getFollowingMonth(year: self.presentedYear, month: self.presentedMonth).month
+        
+        self.firstWeekdayOfPreviousMonth = self.getPreviousFirstWeekday()
+        self.firstWeekdayOfPresentedMonth = self.getPresentedFirstWeekday()
+        self.firstWeekdayOfFollowingMonth = self.getFollowingFirstWeekday()
+        
+        
         
         if calendarShapeMode == .month {
             calendarShapeMode = .week
@@ -168,18 +185,13 @@ class CalendarView: UIView {
         presentedCalendarCollectionView.performBatchUpdates {
             self.presentedCalendarCollectionView.reloadSections(IndexSet(integer: 0))
         } completion: { _ in
-
+            
+            self.previousCalendarCollectionView.reloadData()
+            self.presentedCalendarCollectionView.reloadData()
+            self.followingCalendarCollectionView.reloadData()
+            
         }
 
-        
-//        presentedCalendarCollectionView.performBatchUpdates {
-//            self.presentedCalendarCollectionView.reloadData()
-//
-//        } completion: { _ in
-//
-//        }
-
-//        presentedCalendarCollectionView.reloadData()
     }
     
     private func setUpViews() {
@@ -232,10 +244,10 @@ class CalendarView: UIView {
     }
     
     // 첫번째 날짜 구하기
-    private func getCurrentFirstWeekday() -> Int {
-        let day = ("\(currentYear)-\(currentMonth)-01".date?.firstDayOfTheMonth.weekday)!
-        return day
-    }
+private func getCurrentFirstWeekday() -> Int {
+    let day = ("\(currentYear)-\(currentMonth)-01".date?.firstDayOfTheMonth.weekday)!
+    return day
+}
     
     private func getPreviousFirstWeekday() -> Int {
         let py = getPreviousMonth(year: presentedYear, month: presentedMonth).year
@@ -291,11 +303,6 @@ class CalendarView: UIView {
         }
         return MyDateExpression(year: fy, month: fm)
     }
-    
-    private func changeToWeek() {
-        
-    }
-    
     
     // MARK: - Views
     lazy var monthView: MonthView = {
@@ -497,40 +504,55 @@ extension CalendarView: UICollectionViewDataSource {
             case .week:
                 let startWeekdayOfMonthIndex = firstWeekdayOfPresentedMonth - 1
                 let minimumCellNumber = numOfDaysInMonth[presentedMonth-1] + firstWeekdayOfPresentedMonth - 1
+                
                 let indexOfWeekday = startWeekdayOfMonthIndex + currentDate
-                var startOfWeekThatLocatesToday: Int
+                var startOfWeekThatLocatesToday: Int = 0
+                var endOfWeekThatLocatesToday: Int = 0
                 if indexOfWeekday >= 0 && indexOfWeekday < 7  {
                     startOfWeekThatLocatesToday = 0
-                } else if indexOfWeekday >= 8 && indexOfWeekday < 14 {
-                    startOfWeekThatLocatesToday = 8
-                } else if indexOfWeekday >= 15 && indexOfWeekday < 21 {
-                    startOfWeekThatLocatesToday = 15
-                } else if indexOfWeekday >= 22 && indexOfWeekday < 28 {
-                    startOfWeekThatLocatesToday = 22
-                } else if indexOfWeekday >= 29 && indexOfWeekday < 35 {
-                    startOfWeekThatLocatesToday = 29
+                    endOfWeekThatLocatesToday = 6
+                } else if indexOfWeekday >= 7 && indexOfWeekday < 14 {
+                    startOfWeekThatLocatesToday = 7
+                    endOfWeekThatLocatesToday = 13
+                } else if indexOfWeekday >= 14 && indexOfWeekday < 21 {
+                    startOfWeekThatLocatesToday = 14
+                    endOfWeekThatLocatesToday = 20
+                } else if indexOfWeekday >= 21 && indexOfWeekday < 28 {
+                    startOfWeekThatLocatesToday = 21
+                    endOfWeekThatLocatesToday = 27
+                } else if indexOfWeekday >= 28 && indexOfWeekday < 35 {
+                    startOfWeekThatLocatesToday = 28
+                    endOfWeekThatLocatesToday = 34
                 } else {
-                    startOfWeekThatLocatesToday = 
+                    startOfWeekThatLocatesToday = 35
+                    endOfWeekThatLocatesToday = 41
                 }
-                print(startWeekdayOfMonthIndex)
-                print(minimumCellNumber)
-                if indexPath.item < startWeekdayOfMonthIndex {
-                    // 이전 달의 부분
-                    // 색깔 회색 처리
-                    let previousMonth = presentedMonth < 2 ? 12 : presentedMonth - 1
-                    let previousMonthDate = numOfDaysInMonth[previousMonth-1]
-                    let date = previousMonthDate - (startWeekdayOfMonthIndex-1) + indexPath.row
-                    cell.configureDate(to: date)
-                    cell.isPreviousMonthDate()
-                } else if indexPath.item >= minimumCellNumber {
-                    // 다음 달의 부분
-                    let date = indexPath.item - minimumCellNumber + 1
-                    cell.configureDate(to: date)
-                    cell.isFollowingMonthDate()
+                
+                let dateNumber = minimumCellNumber % 7 == 0 ? minimumCellNumber : minimumCellNumber + (7 - (minimumCellNumber%7))
+                
+                if indexOfWeekday >= 0 && indexOfWeekday < 7 {
+                    if indexPath.item < startWeekdayOfMonthIndex {
+                        let previousMonth = presentedMonth < 2 ? 12 : presentedMonth - 1
+                        let previousMonthDate = numOfDaysInMonth[previousMonth-1]
+                        let date = previousMonthDate - (startWeekdayOfMonthIndex-1) + indexPath.row
+                        cell.configureDate(to: date)
+                        cell.isPreviousMonthDate()
+                    } else {
+                        let date = indexPath.row - startWeekdayOfMonthIndex + 1
+                        cell.configureDate(to: date)
+                    }
+                } else if (dateNumber - 10) == endOfWeekThatLocatesToday {
+                    if indexPath.item >= minimumCellNumber {
+                        let date = startOfWeekThatLocatesToday + indexPath.item - minimumCellNumber + 1
+                        cell.configureDate(to: date)
+                        cell.isFollowingMonthDate()
+                    }
                 } else {
-                    let date = indexPath.row - startWeekdayOfMonthIndex + 1
+                    let date = startOfWeekThatLocatesToday - startWeekdayOfMonthIndex + 1 + indexPath.item
                     cell.configureDate(to: date)
+                    
                 }
+                
                 return cell
             case .month:
                 let startWeekdayOfMonthIndex = firstWeekdayOfPresentedMonth - 1
